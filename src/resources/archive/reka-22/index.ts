@@ -1,6 +1,0 @@
-export {default as festival_map_22} from "./map-22.jpg"
-export {default as card_img_22} from "./Reka2022CardImg.png"
-export {default as merch_22} from "./rema_merch.png"
-export {default as program_22} from "./full-program.png"
-export {default as program_fri_22} from "./program-fri-22.png"
-export {default as program_sat_22} from "./program-sat-22.png"

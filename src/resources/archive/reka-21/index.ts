@@ -1,5 +1,0 @@
-export {default as festival_map_21} from "./Reka_festivalkart_2021.png"
-export {default as program_sat_21} from "./Reka_program_1-Lørdag.png"
-export {default as program_sun_21} from "./Reka_program_2-Søndag.png"
-export {default as program_mon_21} from "./Reka_program_3-Mandag.png"
-export {default as card_img_21} from "./card-img-21.png"
