@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import styles from "./pattern.module.scss";
+import styles from "./Pattern.module.scss";
 
 type PatternProps = {
 	smallest: number,
@@ -41,7 +41,7 @@ export default function Pattern({ smallest, largest, spacing, offsetX = 0, offse
 					ctx.beginPath();
 					ctx.arc(x, y, radius, 0, Math.PI * 2);
 
-					ctx.fillStyle = "#00ff99";
+					ctx.fillStyle = "#ff4499";
 					ctx.fill();
 				}
 			}
