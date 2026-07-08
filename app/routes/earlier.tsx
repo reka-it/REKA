@@ -1,15 +1,15 @@
-import Navbar from "~/components/navbar/navbar";
+import Navbar from "~/components/Navbar/navbar";
 import type { Route } from "./+types/home";
 
 export function meta({ }: Route.MetaArgs) {
-    return [{ title: "REKA" }];
+	return [{ title: "REKA" }];
 }
 
 export default function Home() {
-    return (
-        <>
-            <Navbar />
-            <h1>Liste over tidligere REKA feiringer</h1>
-        </>
-    );
+	return (
+		<>
+			<Navbar />
+			<h1>Liste over tidligere REKA feiringer</h1>
+		</>
+	);
 }

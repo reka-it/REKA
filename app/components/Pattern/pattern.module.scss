@@ -1,0 +1,13 @@
+@use "constants" as *;
+
+.outer {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.pattern {
+  width: 100%;
+  height: 100%;
+}

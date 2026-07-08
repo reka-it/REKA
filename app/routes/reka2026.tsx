@@ -1,4 +1,5 @@
-import Navbar from "~/components/navbar/navbar";
+import Navbar from "~/components/Navbar/navbar";
+import Pattern from "~/components/Pattern/pattern";
 import type { Route } from "./+types/home";
 
 export function meta({ }: Route.MetaArgs) {
@@ -11,6 +12,24 @@ export default function Home() {
 		<>
 			<Navbar />
 			<h1>Reka 2026</h1>
+			<div style={{ position: "absolute", left: "50px", bottom: "200px", rotate: "-30deg", width: "20rem", height: "7rem", clipPath: "polygon(0 40%, 100% 0, 100% 100%, 0 60%)", overflow: "hidden" }}>
+				<Pattern
+					smallest={1}
+					largest={6}
+					spacing={10}
+					offsetX={5}
+					offsetY={5}
+				/>
+			</div>
+			<div style={{ position: "absolute", right: "50px", bottom: "200px", rotate: "200deg", width: "20rem", height: "7rem", clipPath: "polygon(0 40%, 100% 0, 100% 100%, 0 60%)", overflow: "hidden" }}>
+				<Pattern
+					smallest={1}
+					largest={6}
+					spacing={10}
+					offsetX={5}
+					offsetY={5}
+				/>
+			</div>
 		</>
 	);
 }
