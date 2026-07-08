@@ -1,6 +1,5 @@
-import Navbar from "~/components/Navbar/navbar";
-import Pattern from "~/components/Pattern/pattern";
 import type { Route } from "./+types/home";
+import Page from "~/components/Page/Page";
 
 export function meta({ }: Route.MetaArgs) {
 	return [{ title: "REKA" }];
@@ -30,6 +29,9 @@ export default function Home() {
 					offsetY={5}
 				/>
 			</div>
+			<Page>
+				<h1>REKA 26!!!!!!</h1>	
+			</Page>	
 		</>
 	);
 }
