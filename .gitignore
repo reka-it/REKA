@@ -5,3 +5,8 @@
 # React Router
 /.react-router/
 /build/
+
+# Windows Zone.Identifier files
+*:Zone.Identifier
+*.Zone.Identifier
+Zone.Identifier

@@ -1,5 +1,6 @@
 import Navbar from "~/components/Navbar/Navbar";
 import type { Route } from "./+types/home";
+import Page from "~/components/Page/Page";
 
 export function meta({ }: Route.MetaArgs) {
 	return [{ title: "REKA" }];
@@ -8,8 +9,7 @@ export function meta({ }: Route.MetaArgs) {
 export default function Home() {
 	return (
 		<>
-			<Navbar />
-			<h1>Liste over tidligere REKA feiringer</h1>
+			<Page><h1>Liste over tidligere REKA feiringer</h1></Page>
 		</>
 	);
 }
