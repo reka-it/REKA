@@ -2,7 +2,7 @@ import Navbar from "~/components/navbar/navbar";
 import type { Route } from "./+types/home";
 
 export function meta({ }: Route.MetaArgs) {
-	return [{ title: "Reka" }];
+	return [{ title: "REKA" }];
 }
 
 export default function Home() {

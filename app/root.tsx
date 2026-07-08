@@ -5,10 +5,15 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  type LinksFunction,
 } from "react-router";
 
 import type { Route } from "./+types/root";
 import "./app.scss";
+
+export const links: LinksFunction = () => [
+  { rel: "icon", href: "/rekafestival.png" },
+];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
