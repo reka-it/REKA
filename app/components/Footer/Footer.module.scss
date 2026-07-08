@@ -1,0 +1,88 @@
+@use "../../_constants" as *;
+@use "../../mixins" as *;
+
+.footer {
+    --footer-logo-image: url('/reka-logo-basic-padded.svg');
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    min-height: 22vh;
+    background-color: $reke;
+    color: white;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 8vw 0 8vw;
+    overflow: hidden;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-repeat: space;
+        background-position: center;
+        z-index: -1;
+        transition: opacity 1.5s ease 0.3s;
+    }
+
+    &::before {
+        background-image:
+            linear-gradient(rgba($reke, 0.6), rgba($reke, 0.3)),
+            var(--footer-logo-image);
+        background-size: 5%;
+        opacity: 1;
+
+        @include for-mobile-only {
+            background-size: 25%;
+        }
+    }
+
+    &::after {
+        background-image:
+            linear-gradient(rgba($reke, 0.6), rgba($reke, 0.3)),
+            url('/web-logo.png');
+        background-size: 4%;
+        opacity: 0;
+
+        @include for-mobile-only {
+            background-size: 20%;
+        }
+    }
+
+    @include for-mobile-only {
+        font-size: 0.9rem;
+        padding: 2vh 0 2vh 0;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.footerContent {
+    margin: 10vh 0 0 0;
+
+    @include for-mobile-only {
+        margin: 0.5rem auto 0.5rem auto;
+        width: 50%
+    }
+}
+
+p a {
+    text-decoration: none;
+    color: $blue;
+}
+
+h3 a{
+    text-decoration: underline;
+    color: white;
+}
+
+.footer:has(.weeb:hover),.footer:has(.weeb:focus) {
+    &::before {
+        opacity: 0;
+    }
+
+    &::after {
+        opacity: 1;
+    }
+}

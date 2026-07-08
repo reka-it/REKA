@@ -16,7 +16,7 @@
     position: relative;
     width: 16vw;
     height: 6vh;
-    background-image: url('public/Reka logo - 3d.svg');
+    background-image: url('/reka-logo-3d.svg');
     background-size: contain;
     background-repeat: no-repeat;
     cursor: pointer;
@@ -33,7 +33,7 @@
 
 .button {
     margin: 1vh;
-    background-color: $red !important;
+    background-color: $red-light !important;
     flex-basis: 8vw; 
     height: 6vh;
 

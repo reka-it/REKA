@@ -1,12 +1,16 @@
-import styles from "./navbar.module.scss";
-import Button from "../Button/button";
+import styles from "./Navbar.module.scss";
+import Button from "../Button/Button";
 import { useNavigate } from "react-router";
 
-export default function Navbar() {
+type NavbarProps = {
+    className?: string;
+};
+
+export default function Navbar({ className }: NavbarProps) {
     const navigate = useNavigate();
 
     return (
-        <nav className={styles.navBar}>
+        <nav className={[styles.navBar, className].filter(Boolean).join(" ")}>
             <div className={styles.logoWrapper}>
                 <div onClick={() => navigate("/")} className={styles.logo}></div>
             </div>
@@ -18,7 +22,6 @@ export default function Navbar() {
                     Admin
                 </Button>
             </div>
-            
         </nav>
     );
 }

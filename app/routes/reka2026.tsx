@@ -1,5 +1,5 @@
-import Navbar from "~/components/navbar/navbar";
 import type { Route } from "./+types/home";
+import Page from "~/components/Page/Page";
 
 export function meta({ }: Route.MetaArgs) {
 	return [{ title: "REKA" }];
@@ -9,8 +9,9 @@ export default function Home() {
 	//Add suspense component for loading state
 	return (
 		<>
-			<Navbar />
-			<h1>Reka 2026</h1>
+			<Page>
+				<h1>REKA 26!!!!!!</h1>	
+			</Page>	
 		</>
 	);
 }

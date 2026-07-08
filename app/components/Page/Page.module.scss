@@ -1,0 +1,9 @@
+@use "../../_constants" as *;
+@use "../../mixins" as *;
+
+.page {
+    width: 100%;
+    min-height: 90vh;
+    background-color: $lime;
+    color: $red;
+}
