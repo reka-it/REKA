@@ -1,0 +1,37 @@
+@use "../../_constants" as *;
+
+.navBar {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    align-items: center;
+    background-color: $blue;
+}
+
+.logo {
+    position: relative;
+    width: 20vw;
+    height: 6vh;
+    background-image: url('public/REKA-logo-v2.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.logoWrapper {
+    margin: 1vh;
+}
+
+.button {
+    margin: 1vh;
+    background-color: $red !important;
+    flex-basis: 8vw; 
+    height: 6vh;
+}
+
+.buttonWrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding-right: 1vh;
+}
