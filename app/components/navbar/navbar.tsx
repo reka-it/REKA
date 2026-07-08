@@ -8,7 +8,7 @@ export default function Navbar() {
     return (
         <nav className={styles.navBar}>
             <div className={styles.logoWrapper}>
-                <div className={styles.logo}></div>
+                <div onClick={() => navigate("/")} className={styles.logo}></div>
             </div>
             <div className={styles.buttonWrapper}>
                 <Button className={styles.button} type="button" onClick={() => navigate("/earlier")}>

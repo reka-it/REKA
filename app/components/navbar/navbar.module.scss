@@ -14,11 +14,16 @@
 
 .logo {
     position: relative;
-    width: 100%;
+    width: 16vw;
     height: 6vh;
     background-image: url('public/Reka logo - 3d.svg');
     background-size: contain;
     background-repeat: no-repeat;
+    cursor: pointer;
+
+    @include for-mobile-only {
+        width: 100%;
+    }
 }
 
 
