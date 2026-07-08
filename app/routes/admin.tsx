@@ -2,15 +2,14 @@ import Navbar from "~/components/navbar/navbar";
 import type { Route } from "./+types/home";
 
 export function meta({ }: Route.MetaArgs) {
-	return [{ title: "REKA" }];
+    return [{ title: "REKA" }];
 }
 
 export default function Home() {
-	//Add suspense component for loading state
-	return (
-		<>
-			<Navbar />
-			<h1>Reka 2026</h1>
-		</>
-	);
+    return (
+        <>
+            <Navbar />
+            <h1>Admin</h1>
+        </>
+    );
 }
