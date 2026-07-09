@@ -1,0 +1,11 @@
+@use "constants" as *;
+
+
+.hype {
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+  background-color: $blue;
+  color: $white;
+  padding: 0.5vh;
+}
