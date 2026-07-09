@@ -1,4 +1,5 @@
 @use "../constants.scss" as *;
+@use "../mixins.scss" as *;
 
 //Styling specific to the REKA 26
 
@@ -13,6 +14,13 @@
 ////////////////////////////////////
 // Content
 ////////////////////////////////////
+
+.title {
+  @include color-shadow(3,($orange,$yellow,$green,$blue));
+  @include for-mobile-only {
+    padding: 2vh 0 2vh 0;
+  }
+}
 
 .triangleLeft {
   position: absolute;

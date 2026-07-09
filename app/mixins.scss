@@ -1,7 +1,21 @@
 @use "constants" as *;
+@use "sass:list";
 
 @mixin for-mobile-only {
   @media (max-width: $mobile-bp-upper) {
     @content;
   }
+}
+
+@mixin color-shadow($size, $colors) {
+  $text-shadow: ();
+  @for $i from 1 through list.length($colors) {
+    @for $j from 0 through $size {
+      $pos: (($i - 1) * $size + $j) * 1px;
+      $text-shadow: list.append(
+        $text-shadow, $pos $pos list.nth($colors, $i), comma
+      );
+    }
+  }
+  text-shadow: $text-shadow;
 }
