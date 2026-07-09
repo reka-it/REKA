@@ -2,10 +2,30 @@
 
 
 .hype {
+  border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.15s ease, opacity 0.15s ease;
-  background-color: $blue;
-  color: $white;
-  padding: 0.5vh;
+  background-color: $pink;
+  width: 70vw;
+  height: 35vh;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: scale 200ms ease-in-out;
+
+  &:hover {
+    scale: 1.05;
+  }
+
+  &:active {
+    transition: scale 100ms ease-in-out;
+    scale: 0.95;
+  }
+}
+
+.counter {
+  font-size: 100px;
+  color: white;
 }

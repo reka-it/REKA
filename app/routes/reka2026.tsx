@@ -2,6 +2,7 @@ import type { Route } from "./+types/home";
 import Page from "~/components/Page/Page";
 import Pattern from "~/components/Pattern/Pattern";
 import Title from "~/components/Title/Title"
+import HypeButton from "~/components/HypeButton/HypeButton";
 import constants from "~/constants.module.scss";
 import styles from '../styles/reka2026.module.scss'
 
@@ -52,6 +53,7 @@ export default function Home() {
 						opacity={0.2}
 					/>
 				</span>
+				<HypeButton />
 			</Page>
 		</>
 	);
