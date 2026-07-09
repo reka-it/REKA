@@ -1,6 +1,8 @@
 @use "constants" as *;
 
 .outer {
+  top: 0;
+  left: 0;
   position: absolute;
   overflow: hidden;
   width: 100%;

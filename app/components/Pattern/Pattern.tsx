@@ -7,9 +7,11 @@ type PatternProps = {
 	spacing: number,
 	offsetX?: number,
 	offsetY?: number,
+	color?: string,
+	opacity?: number,
 };
 
-export default function Pattern({ smallest, largest, spacing, offsetX = 0, offsetY = 0 }: PatternProps) {
+export default function Pattern({ smallest, largest, spacing, offsetX = 0, offsetY = 0, color = "#00ff99", opacity = 1 }: PatternProps) {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const outerRef = useRef<HTMLDivElement>(null);
 
@@ -41,7 +43,7 @@ export default function Pattern({ smallest, largest, spacing, offsetX = 0, offse
 					ctx.beginPath();
 					ctx.arc(x, y, radius, 0, Math.PI * 2);
 
-					ctx.fillStyle = "#ff4499";
+					ctx.fillStyle = color;
 					ctx.fill();
 				}
 			}
@@ -55,7 +57,7 @@ export default function Pattern({ smallest, largest, spacing, offsetX = 0, offse
 	}, []);
 
 	return (
-		<div className={styles.outer} ref={outerRef}>
+		<div className={styles.outer} ref={outerRef} style={{ opacity: opacity }}>
 			<canvas
 				className={styles.pattern}
 				ref={canvasRef}
