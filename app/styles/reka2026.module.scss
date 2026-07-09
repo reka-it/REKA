@@ -1,5 +1,19 @@
 @use "../constants.scss" as *;
 
+//Styling specific to the REKA 26
+
+.page {
+    font-family: $font-caprisimo;
+    display: flex;
+    flex-direction: column;
+    background-color: $lime;
+      color: $red;
+}
+
+////////////////////////////////////
+// Content
+////////////////////////////////////
+
 .triangleLeft {
   position: absolute;
   left: 50px;
@@ -24,7 +38,7 @@
 }
 
 .panel {
-  border: 2px white solid;
+  border: 2px $white solid;
   background: $green-dark;
   width: 20rem;
   height: 13rem;
@@ -33,11 +47,11 @@
 }
 
 .tag {
-  border: 2px white solid;
+  border: 2px $white solid;
   background: $green-dark;
   padding: 10px;
   position: relative;
   width: fit-content;
-  color: white;
+  color: $white;
   margin: 10px;
 }

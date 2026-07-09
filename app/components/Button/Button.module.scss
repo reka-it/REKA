@@ -2,11 +2,11 @@
 
 
 .button {
-  border: 2px solid white;
+  border: 2px solid $white;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.15s ease, opacity 0.15s ease;
   background-color: $blue;
-  color: white;
+  color: $white;
   padding: 0.5vh;
 }

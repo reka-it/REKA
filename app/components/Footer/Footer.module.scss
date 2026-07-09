@@ -8,12 +8,13 @@
     width: 100%;
     min-height: 22vh;
     background-color: $reke;
-    color: white;
+    color: $white;
     font-size: 0.8rem;
     display: flex;
     justify-content: space-around;
     padding: 0 8vw 0 8vw;
     overflow: hidden;
+    border-top: 2px solid $reke-dark;
 
     &::before,
     &::after {
@@ -74,7 +75,7 @@ p a {
 
 h3 a{
     text-decoration: underline;
-    color: white;
+    color: $white;
 }
 
 .footer:has(.weeb:hover),.footer:has(.weeb:focus) {

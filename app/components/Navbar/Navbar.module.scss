@@ -6,6 +6,7 @@
     grid-template-columns: 3fr 1fr;
     align-items: center;
     background-color: $blue;
+    border-bottom: 2px solid $blue-dark;
 
     @include for-mobile-only {
         grid-template-columns: 1fr 1fr;

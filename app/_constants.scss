@@ -1,12 +1,20 @@
+@use "sass:color";
+
 $reke: #E59887;
+$reke-dark: color.adjust($reke, $lightness: -5%);
+$reke-light: color.adjust($reke, $lightness: 5%);
 $blue: #447EF3;
+$blue-dark: color.adjust($blue, $lightness: -10%);
 $green: #00B353;
-$green-dark: darken($green, 10%);
+$green-dark: color.adjust($green, $lightness: -10%);
 $red-light: #FF0060;
 $red: #FF3031;
 $yellow: #FFBF2F;
 $pink: #F352A9;
 $orange: #FE904E;
 $lime: #B2FF57;
+$white: white;
 
 $mobile-bp-upper: 768px;
+
+$font-caprisimo: 'Caprasimo', cursive;

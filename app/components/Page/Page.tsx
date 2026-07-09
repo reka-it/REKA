@@ -4,15 +4,16 @@ import Footer from "../Footer/Footer";
 
 type PageProps = {
     children?: React.ReactNode;
+    className?: string; //Styling for the Page's main content area
     navBarClassName?: string;
     footerClassName?: string;
 };
 
-export default function Page({children, navBarClassName, footerClassName }: PageProps) {
+export default function Page({children, className, navBarClassName, footerClassName }: PageProps) {
     return (
         <>
             <Navbar className={navBarClassName} />
-            <main className={styles.page}>
+            <main className={[styles.content, className].filter(Boolean).join(" ")}>
                 {children}
             </main>
             <Footer className={footerClassName} />

@@ -12,7 +12,7 @@ export default function Home() {
 	//Add suspense component for loading state
 	return (
 		<>
-			<Page>
+			<Page className={styles.page}>
 				<div className={styles.triangleLeft}>
 					<Pattern
 						smallest={1}
@@ -41,7 +41,7 @@ export default function Home() {
 					/>
 				</div>
 				<span className={styles.tag}>
-					<span> Hello </span>
+					<span> Summer of 69 </span>
 					<Pattern
 						smallest={2}
 						largest={2}
