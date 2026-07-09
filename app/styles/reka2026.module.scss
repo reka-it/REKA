@@ -1,0 +1,43 @@
+@use "../constants.scss" as *;
+
+.triangleLeft {
+  position: absolute;
+  left: 50px;
+  bottom: 200px;
+  rotate: -30deg;
+  width: 20rem;
+  height: 7rem;
+  clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 60%);
+  overflow: hidden;
+  fill: red;
+}
+
+.triangleRight {
+  position: absolute;
+  right: 50px;
+  bottom: 200px;
+  rotate: 200deg;
+  width: 20rem;
+  height: 7rem;
+  clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 60%);
+  overflow: hidden;
+}
+
+.panel {
+  border: 2px white solid;
+  background: $green-dark;
+  width: 20rem;
+  height: 13rem;
+  position: relative;
+  margin: 10px;
+}
+
+.tag {
+  border: 2px white solid;
+  background: $green-dark;
+  padding: 10px;
+  position: relative;
+  width: fit-content;
+  color: white;
+  margin: 10px;
+}

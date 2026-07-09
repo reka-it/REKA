@@ -1,10 +1,12 @@
 @import './constants';
 
+//Denne må holdes oppdatert med _constants.scss
+
 :export {
   reke: $reke;
   blue: $blue;
   green: $green;
-  greenDark: darken($green, 10%);
+  green-dark: $green-dark;
   red-light: $red-light;
   red: $red;
   yellow: $yellow;

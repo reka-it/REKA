@@ -2,6 +2,7 @@ import type { Route } from "./+types/home";
 import Page from "~/components/Page/Page";
 import Pattern from "~/components/Pattern/Pattern";
 import constants from "~/constants.module.scss";
+import styles from '../styles/reka2026.module.scss'
 
 export function meta({ }: Route.MetaArgs) {
 	return [{ title: "REKA" }];
@@ -12,7 +13,7 @@ export default function Home() {
 	return (
 		<>
 			<Page>
-				<div style={{ position: "absolute", left: "50px", bottom: "200px", rotate: "-30deg", width: "20rem", height: "7rem", clipPath: "polygon(0 40%, 100% 0, 100% 100%, 0 60%)", overflow: "hidden", fill: "red" }}>
+				<div className={styles.triangleLeft}>
 					<Pattern
 						smallest={1}
 						largest={6}
@@ -21,14 +22,14 @@ export default function Home() {
 						offsetY={5}
 					/>
 				</div>
-				<div style={{ position: "absolute", right: "50px", bottom: "200px", rotate: "200deg", width: "20rem", height: "7rem", clipPath: "polygon(0 40%, 100% 0, 100% 100%, 0 60%)", overflow: "hidden" }}>
+				<div className={styles.triangleRight}>
 					<Pattern
 						smallest={1}
 						largest={6}
 						spacing={10}
 					/>
 				</div>
-				<div style={{ border: "2px white solid", background: constants.greenDark, width: "20rem", height: "13rem", position: "relative", margin: "10px" }}>
+				<div className={styles.panel}>
 					<Pattern
 						smallest={5}
 						largest={5}
@@ -39,7 +40,7 @@ export default function Home() {
 						opacity={0.5}
 					/>
 				</div>
-				<span style={{ border: "2px white solid", background: constants.greenDark, padding: "10px", position: "relative", width: "fit-content", color: "white", margin: "10px" }}>
+				<span className={styles.tag}>
 					<span> Hello </span>
 					<Pattern
 						smallest={2}
