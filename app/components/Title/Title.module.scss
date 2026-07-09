@@ -1,0 +1,14 @@
+@use "../../_constants" as *;
+@use "../../mixins" as *;
+
+.title {
+    text-align: center;
+    font-size: 3rem;
+    margin: auto;  
+    width: fit-content;
+    padding: 1vh;
+}
+
+.wrapper {
+    padding: 2vh 6vh 2vh 6vh;
+}

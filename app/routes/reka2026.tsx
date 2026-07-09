@@ -1,6 +1,7 @@
 import type { Route } from "./+types/home";
 import Page from "~/components/Page/Page";
 import Pattern from "~/components/Pattern/Pattern";
+import Title from "~/components/Title/Title"
 import constants from "~/constants.module.scss";
 import styles from '../styles/reka2026.module.scss'
 
@@ -13,6 +14,7 @@ export default function Home() {
 	return (
 		<>
 			<Page className={styles.page}>
+				<Title className={styles.title}>Summer of '69</Title>
 				<div className={styles.triangleLeft}>
 					<Pattern
 						smallest={1}
@@ -50,7 +52,6 @@ export default function Home() {
 						opacity={0.2}
 					/>
 				</span>
-				<h1>REKA 26!!!!!!</h1>
 			</Page>
 		</>
 	);
