@@ -1,11 +1,11 @@
-import type { Route } from "./+types/home";
+import type { Route } from "./+types/reka2026";
 import Page from "~/components/Page/Page";
 import Pattern from "~/components/Pattern/Pattern";
 import Title from "~/components/Title/Title"
 import HypeButton from "~/components/HypeButton/HypeButton";
 import GrainOverlay from "~/components/GrainOverlay/GrainOverlay";
 import constants from "~/constants.module.scss";
-import styles from '../styles/reka2026.module.scss'
+import styles from '~/styles/reka2026.module.scss'
 
 export function meta({ }: Route.MetaArgs) {
 	return [{ title: "REKA" }];

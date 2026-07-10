@@ -6,10 +6,7 @@ export function meta({ }: Route.MetaArgs) {
 }
 
 export function loader() {
-	if (new Date().getFullYear() === 2026) {
-		throw redirect("/2026");
-	}
-	return null;
+	throw redirect(`/reka/${new Date().getFullYear()}`);
 }
 
-// ekspoter ikke noe html siden den redirecter til 2026 før noe html blir lastet
+// ekspoter ikke noe html siden den redirecter til årets reka før noe html blir lastet

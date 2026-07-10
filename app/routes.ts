@@ -1,8 +1,12 @@
-import { type RouteConfig, index, route } from "@react-router/dev/routes";
+import { type RouteConfig, index, route, prefix } from "@react-router/dev/routes";
 
 export default [
 	index("routes/home.tsx"),
-	route("2026", "routes/reka2026.tsx"), // eksempel route
+	...prefix("reka", [
+		route("2026", "routes/reka/reka2026.tsx"),
+		route(":slug", "routes/reka/ingenReka.tsx"),
+	]),
 	route("admin", "routes/admin.tsx"),
 	route("earlier", "routes/earlier.tsx"),
+	route("*", "routes/notFound.tsx"),
 ] satisfies RouteConfig;
