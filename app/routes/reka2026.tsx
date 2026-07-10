@@ -3,6 +3,7 @@ import Page from "~/components/Page/Page";
 import Pattern from "~/components/Pattern/Pattern";
 import Title from "~/components/Title/Title"
 import HypeButton from "~/components/HypeButton/HypeButton";
+import GrainOverlay from "~/components/GrainOverlay/GrainOverlay";
 import constants from "~/constants.module.scss";
 import styles from '../styles/reka2026.module.scss'
 
@@ -14,6 +15,7 @@ export default function Home() {
 	//Add suspense component for loading state
 	return (
 		<>
+			<GrainOverlay />
 			<Page className={styles.page}>
 				<Title className={styles.title}>Summer of '69</Title>
 				<div className={styles.triangleLeft}>
@@ -54,7 +56,7 @@ export default function Home() {
 					/>
 				</span>
 				<HypeButton />
-			</Page>
+			</Page >
 		</>
 	);
 }
