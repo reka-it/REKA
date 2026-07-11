@@ -1,5 +1,6 @@
 @use "sass:color";
 
+// temp farger til alt blir overført til -2026
 $reke: #E59887;
 $reke-dark: color.adjust($reke, $lightness: -5%);
 $reke-light: color.adjust($reke, $lightness: 5%);
@@ -18,3 +19,23 @@ $white: white;
 $mobile-bp-upper: 768px;
 
 $font-caprisimo: 'Caprasimo', cursive;
+
+// default, (ikke helt satt i stein)
+$bg-default: #FFEBB7;
+$on-bg-default: #AD8E70;
+$primary-default: #FF6E31;
+$accent-default: #F5ADC1;
+$shadow-default: #243763;
+
+// reka 2026
+$bg-2026: #B0FC57;
+$on-bg-2026: #80B93D;
+$blue-2026: #447EF3;
+$blue-dark-2026: color.adjust($blue, $lightness: -10%);
+$green-2026: #00B353;
+$green-dark-2026: color.adjust($green, $lightness: -10%);
+$red-light-2026: #FF0060;
+$red-2026: #FF3031;
+$yellow-2026: #FFBF2F;
+$pink-2026: #F352A9;
+$orange-2026: #FE904E;
