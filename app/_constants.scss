@@ -1,5 +1,8 @@
 @use "sass:color";
 
+// Farger og fonts bør deklareres etter årstall for styling
+// Altså primary-2026 og primary-2027 osv
+
 // temp farger til alt blir overført til -2026
 $reke: #E59887;
 $reke-dark: color.adjust($reke, $lightness: -5%);
@@ -24,8 +27,13 @@ $font-caprisimo: 'Caprasimo', cursive;
 $bg-default: #FFEBB7;
 $on-bg-default: #AD8E70;
 $primary-default: #FF6E31;
+$secondary-default: #7A8B4C;
+$tertiary-default: #E0A526;
 $accent-default: #F5ADC1;
 $shadow-default: #243763;
+
+$font-header-default: "Holtwood One SC", serif;
+$font-paragraph-default: "Gveret Levin", cursive;
 
 // reka 2026
 $bg-2026: #B0FC57;
