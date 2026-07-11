@@ -18,7 +18,7 @@ export function useValue(
 				setData(snapshot.exists() ? (snapshot.data() as DocumentData) : null);
 				setLoading(false);
 			},
-			(err) => {
+			(_) => {
 				setLoading(false);
 			}
 		);
