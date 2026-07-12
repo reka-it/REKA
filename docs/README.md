@@ -9,7 +9,6 @@ Noe er autogenerert av claude, kan derfor være småfeil eller utdaterte ting.
 
 Documentation for the REKA.
 
-- [Getting started](./getting-started.md): install, environment variables, running the dev server.
 - [Architecture](./architecture.md): tech stack, folder layout, routing.
 - [Components](./components.md): component conventions and current inventory.
 - [Firebase](./firebase.md): auth, Firestore, and custom firebase hooks.
