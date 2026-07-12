@@ -7,6 +7,7 @@ export default [
 		route(":slug", "routes/reka/ingenReka.tsx"),
 	]),
 	route("admin", "routes/admin.tsx"),
+	route("auth", "routes/auth.tsx"),
 	route("earlier", "routes/earlier.tsx"),
 	route("*", "routes/notFound.tsx"),
 ] satisfies RouteConfig;
