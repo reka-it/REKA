@@ -15,6 +15,7 @@ Documentation for the REKA.
 - [Styling](./styling.md): SCSS Modules and constants.
 - [Deployment](./deployment.md): Hosting.
 - [Contributing](./contributing.md): Design Philosophy and contributing.
+- [Figma](./figma.md): Best practices — one file per year, shared variables, matching components.
 
 #### Writing docs
 
