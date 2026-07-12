@@ -14,3 +14,7 @@ Ved utvikling av siden bør du:
 - Lage årets side sånn at andre sider ikke blir endret
 - I løs grad følge designet til nettsiden som en helhet
 - Huske at noen andre også skal kode denne nettsiden etter deg, så gjør det leselig. God kode, kommenter, lag issues og skriv docs.
+
+## Docs
+
+See [docs/](./docs) for setup, architecture, components, Firebase, styling, and deployment notes.
