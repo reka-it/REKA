@@ -15,6 +15,6 @@ Ved utvikling av siden bør du:
 - I løs grad følge designet til nettsiden som en helhet
 - Huske at noen andre også skal kode denne nettsiden etter deg, så gjør det leselig. God kode, kommenter, lag issues og skriv docs.
 
-## Docs
+## DOCS
 
-See [docs/](./docs) for setup, architecture, components, Firebase, styling, and deployment notes.
+Dokumentajon ligger her -> [Docs/](./docs)
