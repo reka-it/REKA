@@ -1,0 +1,139 @@
+@use "constants" as *;
+
+.container {
+  width: 50vw;
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.field {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  flex-direction: column;
+
+  &--row {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.label {
+  font-size: 20px;
+  color: $on-bg-default;
+}
+
+.input {
+  appearance: none;
+  border: $shadow-default 2px solid;
+  box-shadow: 10px 10px 0 $shadow-default;
+  padding: 10px 14px;
+  font-size: 16px;
+  background-color: $bg-default;
+  color: $on-bg-default;
+  outline: none;
+  transition: border-color 120ms ease;
+
+  &:focus {
+    border-color: $shadow-default;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+  }
+
+  &::placeholder {
+    opacity: 0.9;
+  }
+}
+
+.error {
+  font-size: 13px;
+  line-height: 1.4;
+  min-height: 1.4em; // reserved even when empty, so a message appearing/disappearing doesn't shift layout
+  color: $red-light-2026;
+  margin: 0;
+}
+
+.root-error {
+  font-size: 14px;
+  color: #fff;
+  background-color: $red-light-2026;
+  border: $shadow-default 2px solid;
+  box-shadow: 6px 6px 0 $shadow-default;
+  padding: 10px 14px;
+}
+
+.submit {
+  appearance: none;
+  border: $shadow-default 2px solid;
+  box-shadow: 10px 10px 0 $shadow-default;
+  background-color: $primary-default;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease, transform 0.15s ease, background-color 0.15s ease, width 150ms ease, height 150ms ease;
+
+  &:hover:not(:disabled) {
+    background-color: darken($primary-default, 8%);
+  }
+
+  &:active:not(:disabled) {
+    box-shadow: 4px 4px 0 $shadow-default;
+    transform: translate(6px, 6px);
+  }
+
+  &:disabled {
+    background-color: $secondary-default;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+// Primary action — filled, draws the eye first.
+.login {
+  @extend .submit;
+}
+
+// Secondary action — same size and shadow language as .submit,
+// but outline-style so it doesn't compete with .login for attention.
+.signup {
+  @extend .submit;
+  background-color: transparent;
+  color: $shadow-default;
+
+  &:hover:not(:disabled) {
+    background-color: rgba($shadow-default, 0.06);
+  }
+
+  &:disabled {
+    background-color: transparent;
+    border-color: $secondary-default;
+    color: $secondary-default;
+  }
+}

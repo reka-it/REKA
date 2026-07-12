@@ -9,13 +9,16 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.4.0",
     "@react-router/node": "8.0.0",
     "@react-router/serve": "8.0.0",
     "firebase": "^12.16.0",
     "isbot": "^5.1.36",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "react-router": "8.0.0"
+    "react-hook-form": "^7.81.0",
+    "react-router": "8.0.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@react-router/dev": "8.0.0",
