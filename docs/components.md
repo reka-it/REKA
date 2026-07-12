@@ -1,5 +1,7 @@
 # Components
 
+[← Back](./README.md)
+
 ## Convention
 
 Each component lives in its own folder under `app/components/`:

@@ -1,5 +1,7 @@
 # Contributing
 
+[← Back](./README.md)
+
 ## Philosophy
 
 > When developing this site you should think about:

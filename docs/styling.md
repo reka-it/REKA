@@ -1,5 +1,7 @@
 # Styling
 
+[← Back](./README.md)
+
 ## SCSS Modules
 
 Every component/route has its own `*.module.scss` file, imported as `styles` and applied via

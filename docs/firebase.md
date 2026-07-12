@@ -1,5 +1,7 @@
 # Firebase
 
+[← Back](./README.md)
+
 Firebase backs auth, data, and analytics. Everything is in `app/firebase/`.
 
 ## Setup
