@@ -1,23 +1,28 @@
 import { useState, useEffect } from "react";
 import { useNavigate, type NavigateFunction } from "react-router";
-import { onAuthStateChanged, type User } from "firebase/auth";
-import { doc, onSnapshot } from "firebase/firestore";
+import { onAuthStateChanged, type User as FirebaseUser } from "firebase/auth";
+import { doc, getDoc, onSnapshot } from "firebase/firestore";
 import { auth, db } from "./firebase";
-import type { userRole } from "./auth";
+import type { DbUser, Role } from "./user";
 
+// account is the authentication object used when loggin in
+// it contains the uid
+// user is the database version which stores user related values like role, 
+// role here is essentialy just user.role but easier if you don't need user
 interface AuthState {
-	user: User | null;
-	role: userRole,
+	account: FirebaseUser | null,
+	user: DbUser | null,
+	role: Role,
 	loading: boolean;
 }
 
-const roleLevel: Record<Exclude<userRole, null>, number> = {
+const roleLevel: Record<Exclude<Role, null>, number> = {
 	user: 1,
 	admin: 2,
 	dev: 3,
 };
 
-export type AuthRequirement = Exclude<userRole, null> | "guest";
+export type AuthRequirement = Exclude<Role, null> | "guest";
 
 export function goBack(navigate: NavigateFunction) {
 	if (window.history.state?.idx > 0) {
@@ -28,18 +33,21 @@ export function goBack(navigate: NavigateFunction) {
 }
 
 export function useAuth(requiredRole?: AuthRequirement): AuthState {
-	const [user, setUser] = useState<User | null>(null);
-	const [role, setRole] = useState<userRole>(null);
+	// fields
+	const [account, setAccount] = useState<FirebaseUser | null>(null);
+	const [user, setUser] = useState<DbUser | null>(null);
+	const role = user?.role ?? null;
 	const [loading, setLoading] = useState(true);
+
 	const navigate = useNavigate();
 
 	useEffect(() => {
 		const unsubscribeAuth = onAuthStateChanged(
 			auth,
 			(firebaseUser) => {
-				setUser(firebaseUser);
+				setAccount(firebaseUser);
 				if (!firebaseUser) {
-					setRole(null);
+					setUser(null);
 					setLoading(false);
 				}
 			},
@@ -52,13 +60,13 @@ export function useAuth(requiredRole?: AuthRequirement): AuthState {
 	}, []);
 
 	useEffect(() => {
-		if (!user) return;
+		if (!account) return;
 
 		const unsubscribeDoc = onSnapshot(
-			doc(db, "users", user.uid),
+			doc(db, "users", account.uid),
 			(snapshot) => {
 				const data = snapshot.data();
-				setRole((data?.role as userRole) ?? "user");
+				setUser(data ? (data as DbUser) : null);
 				setLoading(false);
 			},
 			(_) => {
@@ -67,19 +75,19 @@ export function useAuth(requiredRole?: AuthRequirement): AuthState {
 		);
 
 		return () => unsubscribeDoc();
-	}, [user]);
+	}, [account]);
 
 	useEffect(() => {
 		if (!requiredRole || loading) return;
 
 		if (requiredRole === "guest") {
-			if (user) goBack(navigate);
+			if (account) goBack(navigate);
 			return;
 		}
 
 		if (role && roleLevel[role] >= roleLevel[requiredRole]) return;
 		goBack(navigate);
-	}, [requiredRole, loading, role, user, navigate]);
+	}, [requiredRole, loading, role, account, navigate]);
 
-	return { user, role, loading };
+	return { account, user, role, loading };
 }

@@ -2,17 +2,18 @@ import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
 	signOut,
-	type User,
+	type User as FirebaseUser,
 } from "firebase/auth";
 import { auth, db } from "./firebase";
 import { createUser } from "./firestore";
 import { getDocs, where } from "firebase/firestore/lite";
 import { collection, query, updateDoc } from "firebase/firestore";
+import type { Role } from "./user";
+import { onAuthStateChanged } from "firebase/auth/cordova";
 
-export type userRole = "dev" | "admin" | "user" | null;
 export type AuthErrorField = "email" | "password" | "root";
 export type AuthResult =
-	| { success: true; user: User }
+	| { success: true; user: FirebaseUser }
 	| { success: false; field: AuthErrorField; message: string; code: string };
 
 // claude generated (if problems blame ai)
@@ -68,7 +69,16 @@ export async function logOut() {
 	return signOut(auth);
 }
 
-export async function setAuth(email: string, role: userRole) {
+export async function loggedIn(): Promise<boolean> {
+	return new Promise(resolve => {
+		const drop = onAuthStateChanged(auth, user => {
+			drop();
+			resolve(!!user);
+		})
+	})
+}
+
+export async function setAuth(email: string, role: Role) {
 	if (role == null) return;
 	const snapshot = await getDocs(query(collection(db, "users"), where("email", "==", email)));
 	if (snapshot.empty) {

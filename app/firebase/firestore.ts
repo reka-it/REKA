@@ -1,6 +1,7 @@
 import { addDoc, collection, setDoc, doc, updateDoc, getDoc } from "firebase/firestore";
 import type { DocumentReference, DocumentData } from "firebase/firestore";
 import { db } from "./firebase";
+import type { DbUser } from "./user"
 
 /// updates a ref by data returned by update, if ref does not exist model is used to create a new document
 export async function upsert(
@@ -42,7 +43,8 @@ export async function createUser(uid: string, email: string) {
 
 	await setDoc(userRef, {
 		email,
+		hype: 0,
 		role: "user",
 		createdAt: new Date(),
-	});
+	} as DbUser);
 }

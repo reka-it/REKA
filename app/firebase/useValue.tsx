@@ -4,7 +4,7 @@ import { db } from "~/firebase/firebase";
 
 export function useValue(
 	collectionName: string,
-	docId: string
+	docId: string,
 ) {
 	const [data, setData] = useState<DocumentData | null>(null);
 	const [loading, setLoading] = useState(true);
