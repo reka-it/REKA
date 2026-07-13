@@ -1,20 +1,23 @@
 import { useEffect, useState } from "react";
 import styles from "./HypeButton.module.scss";
-import { upsertHype } from "~/firebase/firestore";
+import { updateUserHypeCount, upsertHype } from "~/firebase/firestore";
 import { useHypeCounter } from "~/firebase/useHypeCounter";
+import { useAuth } from "~/firebase/useAuth";
 
 type HypeButtonProps = {
 };
 
 export default function HypeButton({ }: HypeButtonProps) {
+	const { account } = useAuth()
 	const { data, loading } = useHypeCounter();
 
-	useEffect(() => {
-
-	}, [])
+	const onClick = () => {
+		upsertHype()
+		updateUserHypeCount(account)
+	}
 
 	return (
-		<button className={styles.hype} onClick={() => upsertHype()}>
+		<button className={styles.hype} onClick={onClick}>
 			<span className={styles.counter}>
 				{data && data.hype}
 			</span>

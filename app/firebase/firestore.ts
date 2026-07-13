@@ -1,7 +1,7 @@
-import { addDoc, collection, setDoc, doc, updateDoc, getDoc } from "firebase/firestore";
+import { addDoc, collection, setDoc, doc, updateDoc, getDoc, increment } from "firebase/firestore";
 import type { DocumentReference, DocumentData } from "firebase/firestore";
 import { db } from "./firebase";
-import type { DbUser } from "./user"
+import type { Account, DbUser } from "./user"
 
 /// updates a ref by data returned by update, if ref does not exist model is used to create a new document
 export async function upsert(
@@ -27,20 +27,29 @@ export async function update(
 	}
 }
 
-/// hype button upsert
 export async function upsertHype() {
-	await upsert(doc(db, 'values', 'hype'), { hype: 1 }, data => ({ hype: parseInt(data.hype) + 1 }));
+	const ref = doc(db, 'values', 'hype');
+	const snapshot = await getDoc(ref);
+	if (snapshot.exists()) {
+		await updateDoc(ref, { hype: increment(1) });
+	} else {
+		await setDoc(ref, { hype: 1 });
+	}
+}
+
+export async function updateUserHypeCount(account: Account | null) {
+	if (!account) return;
+	const ref = doc(db, "users", account.uid);
+	await updateDoc(ref, { hype: increment(1) });
 }
 
 // this function does not create a authed user, but rather the database version from a uid
 export async function createUser(uid: string, email: string) {
 	const userRef = doc(db, "users", uid);
 	const existing = await getDoc(userRef);
-
 	if (existing.exists()) {
 		return;
 	}
-
 	await setDoc(userRef, {
 		email,
 		hype: 0,

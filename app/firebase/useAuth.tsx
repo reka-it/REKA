@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import { useNavigate, type NavigateFunction } from "react-router";
-import { onAuthStateChanged, type User as FirebaseUser } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc, onSnapshot } from "firebase/firestore";
 import { auth, db } from "./firebase";
-import type { DbUser, Role } from "./user";
+import type { Account, DbUser, Role } from "./user";
 
 // account is the authentication object used when loggin in
 // it contains the uid
 // user is the database version which stores user related values like role, 
 // role here is essentialy just user.role but easier if you don't need user
 interface AuthState {
-	account: FirebaseUser | null,
+	account: Account | null,
 	user: DbUser | null,
 	role: Role,
 	loading: boolean;
@@ -34,7 +34,7 @@ export function goBack(navigate: NavigateFunction) {
 
 export function useAuth(requiredRole?: AuthRequirement): AuthState {
 	// fields
-	const [account, setAccount] = useState<FirebaseUser | null>(null);
+	const [account, setAccount] = useState<Account | null>(null);
 	const [user, setUser] = useState<DbUser | null>(null);
 	const role = user?.role ?? null;
 	const [loading, setLoading] = useState(true);
