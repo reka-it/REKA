@@ -1,5 +1,48 @@
 @use "constants" as *;
 
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.tab {
+  appearance: none;
+  border: $shadow-default 2px solid;
+  background-color: transparent;
+  color: $secondary-default;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background-color: rgba($shadow-default, 0.06);
+  }
+}
+
+.tabActive {
+  @extend .tab;
+  background-color: $primary-default;
+  border-color: $shadow-default;
+  color: #fff;
+
+  &:hover {
+    background-color: darken($primary-default, 8%);
+  }
+}
+
 .form {
   width: 100%;
   height: 100%;
@@ -7,68 +50,14 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 24px;
 }
 
-.field {
-  width: fit-content;
-  height: fit-content;
+.inputs {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  gap: 10px;
+  align-items: center;
   flex-direction: column;
-
-  &--row {
-    flex-direction: row;
-    align-items: center;
-  }
-}
-
-.label {
-  font-size: 20px;
-  color: $on-bg-default;
-}
-
-.input {
-  appearance: none;
-  border: $shadow-default 2px solid;
-  box-shadow: 10px 10px 0 $shadow-default;
-  padding: 10px 14px;
-  font-size: 16px;
-  background-color: $bg-default;
-  color: $on-bg-default;
-  outline: none;
-  transition: border-color 120ms ease;
-
-  &:focus {
-    border-color: $shadow-default;
-  }
-
-  &:disabled {
-    opacity: 0.6;
-  }
-
-  &::placeholder {
-    opacity: 0.9;
-  }
-}
-
-.error {
-  font-size: 13px;
-  line-height: 1.4;
-  min-height: 1.4em; // reserved even when empty, so a message appearing/disappearing doesn't shift layout
-  color: $red-light-2026;
-  margin: 0;
-}
-
-.root-error {
-  font-size: 14px;
-  color: #fff;
-  background-color: $red-light-2026;
-  border: $shadow-default 2px solid;
-  box-shadow: 6px 6px 0 $shadow-default;
-  padding: 10px 14px;
+  gap: 30px;
 }
 
 .submit {
@@ -103,6 +92,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 16px;
 }
 

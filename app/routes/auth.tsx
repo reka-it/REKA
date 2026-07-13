@@ -3,7 +3,7 @@ import type { Route } from "./+types/auth";
 import Page from "~/components/Page/Page";
 import Auth from "~/components/Auth/Auth";
 import { goBack, useAuth } from "~/firebase/useAuth";
-import styles from "./auth.module.scss";
+import styles from "~/styles/auth.module.scss";
 import { loggedIn } from "~/firebase/auth";
 
 export function meta({ }: Route.MetaArgs) {

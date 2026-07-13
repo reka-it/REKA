@@ -2,6 +2,7 @@ import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
 	signOut,
+	updateProfile,
 	type User as FirebaseUser,
 } from "firebase/auth";
 import { auth, db } from "./firebase";
@@ -40,10 +41,11 @@ function mapAuthError(code: string): { field: AuthErrorField; message: string } 
 	}
 }
 
-export async function signUp(email: string, password: string): Promise<AuthResult> {
+export async function signUp(email: string, password: string, name: string): Promise<AuthResult> {
 	try {
 		const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-		await createUser(userCredential.user.uid, email);
+		await updateProfile(userCredential.user, { displayName: name });
+		await createUser(userCredential.user.uid, email, name);
 
 		return { success: true, user: userCredential.user };
 	} catch (error: any) {

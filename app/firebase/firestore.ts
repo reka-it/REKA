@@ -44,13 +44,14 @@ export async function updateUserHypeCount(account: Account | null) {
 }
 
 // this function does not create a authed user, but rather the database version from a uid
-export async function createUser(uid: string, email: string) {
+export async function createUser(uid: string, email: string, name: string) {
 	const userRef = doc(db, "users", uid);
 	const existing = await getDoc(userRef);
 	if (existing.exists()) {
 		return;
 	}
 	await setDoc(userRef, {
+		name,
 		email,
 		hype: 0,
 		role: "user",

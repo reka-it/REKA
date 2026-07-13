@@ -7,6 +7,7 @@ export type Account = FirebaseUser;
 export type Role = "user" | "admin" | "dev" | null;
 
 export interface DbUser {
+	name: string,
 	email: string,
 	role: Role,
 	hype: number,
