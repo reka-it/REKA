@@ -10,7 +10,7 @@ export function meta({ }: Route.MetaArgs) {
 	return [{ title: "REKA ADMIN" }];
 }
 
-export default function Home() {
+export default function Admin() {
 	const [open, setOpen] = useState(false);
 	const { user, role } = useAuth();
 	return (
@@ -20,6 +20,9 @@ export default function Home() {
 				<AuthModal open={open} setOpen={setOpen} />
 				{user &&
 					<div style={{ display: "flex", flexDirection: "column", gap: "10px", margin: "10px", width: "fit-content" }}>
+						<p>
+							name: {user.name}
+						</p>
 						<p>
 							email: {user.email}
 						</p>

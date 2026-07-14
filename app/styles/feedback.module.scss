@@ -1,0 +1,40 @@
+@use "../constants.scss" as *;
+
+.form {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: $bg-default;
+}
+
+.heading {
+  color: $primary-default;
+  font-size: 80px;
+}
+
+.area {
+  background: $bg-default;
+  border: $on-bg-default 4px solid;
+  box-shadow: 10px 10px 0 $shadow-default;
+  color: $on-bg-default;
+  font-size: 16px;
+  padding: 10px;
+  outline: none;
+  min-width: 40%;
+  max-width: 80%;
+  min-height: 30%;
+  max-height: 60%;
+}
+
+.error {
+  color: red;
+  font-size: 16px;
+}
+
+.success {
+  color: green;
+  font-size: 16px;
+}

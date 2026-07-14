@@ -1,7 +1,8 @@
-import { addDoc, collection, setDoc, doc, updateDoc, getDoc, increment } from "firebase/firestore";
+import { addDoc, collection, setDoc, doc, updateDoc, getDoc, increment, query, orderBy } from "firebase/firestore";
 import type { DocumentReference, DocumentData } from "firebase/firestore";
 import { db } from "./firebase";
 import type { Account, DbUser } from "./user"
+import { getDocs } from "firebase/firestore/lite";
 
 /// updates a ref by data returned by update, if ref does not exist model is used to create a new document
 export async function upsert(
@@ -57,4 +58,39 @@ export async function createUser(uid: string, email: string, name: string) {
 		role: "user",
 		createdAt: new Date(),
 	} as DbUser);
+}
+
+interface Feedback {
+	by: string | null;
+	message: string;
+	createdAt: Date;
+}
+
+export async function createFeedback(
+	account: Account | null,
+	message: string
+): Promise<DocumentReference> {
+	const ref = collection(db, "feedback");
+	const content = {
+		by: account ? account.uid : null,
+		message: message,
+		createdAt: new Date(),
+	};
+	return await addDoc(ref, content);
+}
+
+export async function getFeedback(id: string): Promise<DocumentData | null> {
+	const ref = doc(db, "feedback", id);
+	const snapshot = await getDoc(ref);
+	return snapshot.exists() ? (snapshot.data() as Feedback) : null;
+}
+
+export async function getAllFeedback(): Promise<Array<Feedback & { id: string }>> {
+	const ref = collection(db, "feedback");
+	const snapshot = await getDocs(query(ref, orderBy("createdAt", "desc")));
+
+	return snapshot.docs.map((doc) => ({
+		id: doc.id,
+		...(doc.data() as Feedback),
+	}));
 }

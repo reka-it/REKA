@@ -1,0 +1,19 @@
+@use "constants" as *;
+
+.dropdown {
+  background-color: $bg-default;
+  border: 4px $on-bg-default solid;
+  overflow: hidden;
+  overflow-y: auto;
+  box-shadow: 10px 10px 0px $shadow-default;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5px;
+}
+
+.item {
+  color: $on-bg-default;
+  font-size: 20px;
+}

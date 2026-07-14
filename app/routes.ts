@@ -9,5 +9,6 @@ export default [
 	route("admin", "routes/admin.tsx"),
 	route("auth", "routes/auth.tsx"),
 	route("earlier", "routes/earlier.tsx"),
+	route("feedback", "routes/feedback.tsx"),
 	route("*", "routes/notFound.tsx"),
 ] satisfies RouteConfig;
