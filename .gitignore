@@ -10,3 +10,5 @@
 *:Zone.Identifier
 *.Zone.Identifier
 Zone.Identifier
+*storybook.log
+storybook-static

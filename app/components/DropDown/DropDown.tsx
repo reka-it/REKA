@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import styles from "./Modal.module.scss";
+import styles from "./DropDown.module.scss";
 
 type DropDownProps = {
 	open: boolean;
