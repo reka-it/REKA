@@ -4,6 +4,8 @@ import { db } from "./firebase";
 import type { Account, DbUser } from "./user"
 import { getDocs } from "firebase/firestore/lite";
 
+export type Sorting = "asc" | "desc";
+
 /// updates a ref by data returned by update, if ref does not exist model is used to create a new document
 export async function upsert(
 	ref: DocumentReference,
@@ -79,18 +81,41 @@ export async function createFeedback(
 	return await addDoc(ref, content);
 }
 
-export async function getFeedback(id: string): Promise<DocumentData | null> {
+export async function getFeedback(id: string): Promise<Feedback | null> {
 	const ref = doc(db, "feedback", id);
 	const snapshot = await getDoc(ref);
 	return snapshot.exists() ? (snapshot.data() as Feedback) : null;
 }
 
-export async function getAllFeedback(): Promise<Array<Feedback & { id: string }>> {
+export async function getAllFeedback(
+	field: keyof Feedback = "createdAt",
+	sorting: Sorting = "desc"
+): Promise<Array<Feedback & { id: string }>> {
 	const ref = collection(db, "feedback");
-	const snapshot = await getDocs(query(ref, orderBy("createdAt", "desc")));
+	const snapshot = await getDocs(query(ref, orderBy(field, sorting)));
 
-	return snapshot.docs.map((doc) => ({
+	return snapshot.docs.map(doc => ({
 		id: doc.id,
 		...(doc.data() as Feedback),
 	}));
 }
+
+export async function getDbUser(uid: string): Promise<DbUser | null> {
+	const ref = doc(db, "users", uid);
+	const snapshot = await getDoc(ref);
+	return snapshot.exists() ? (snapshot.data() as DbUser) : null;
+}
+
+export async function getDbUsers(
+	field: keyof DbUser = "createdAt",
+	sorting: Sorting = "desc"
+): Promise<Array<DbUser & { id: string }>> {
+	const ref = collection(db, "users");
+	const snapshot = await getDocs(query(ref, orderBy(field, sorting)));
+
+	return snapshot.docs.map(doc => ({
+		id: doc.id,
+		...(doc.data() as DbUser),
+	}));
+}
+
