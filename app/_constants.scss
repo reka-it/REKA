@@ -31,6 +31,7 @@ $secondary-default: #7A8B4C;
 $tertiary-default: #E0A526;
 $accent-default: #F5ADC1;
 $shadow-default: #243763;
+$drop-shadow-default: drop-shadow(10px 10px 0 $shadow-default);
 
 $font-header-default: "Holtwood One SC", serif;
 $font-paragraph-default: "Gveret Levin", cursive;

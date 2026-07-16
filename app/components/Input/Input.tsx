@@ -7,21 +7,6 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 	error?: FieldError;
 }
 
-function Inputt({ label, error, id, ...props }: InputProps) {
-	return (
-		<div className={styles.field}>
-			<label htmlFor={id} className={styles.label}>
-				{label}
-			</label>
-			<input id={id} className={styles.input} {...props} />
-			<p className={styles.error} role={error ? "alert" : undefined}>
-				{error?.message}
-			</p>
-		</div>
-	);
-}
-
-
 export default function Input({ label, error, id, ...props }: InputProps) {
 	return (
 		<div className={styles.container}>
@@ -29,7 +14,6 @@ export default function Input({ label, error, id, ...props }: InputProps) {
 				<label htmlFor={id} className={styles.label}>
 					{label}
 				</label>
-				<div className={styles.deco} />
 				<input id={id} className={styles.input} {...props} />
 			</div>
 			<p className={styles.error} role={error ? "alert" : undefined}>

@@ -18,7 +18,6 @@
 .area {
   background: $bg-default;
   border: $on-bg-default 4px solid;
-  box-shadow: 10px 10px 0 $shadow-default;
   color: $on-bg-default;
   font-size: 16px;
   padding: 10px;
@@ -27,6 +26,7 @@
   max-width: 80%;
   min-height: 30%;
   max-height: 60%;
+  filter: $drop-shadow-default;
 }
 
 .error {

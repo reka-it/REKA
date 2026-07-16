@@ -13,5 +13,6 @@ Colors and fonts: imported with `@use "constants" as *;`. A couple of things to 
 
 - Colors are versioned by year: Each year gets its own variables, so palettes are meant
   to be suffixed by year (e.g. `$primary-2026`, `$bg-2026`) rather than overwritten. There's also a `-default` set (`$bg-default`, `$primary-default`, `$shadow-default`, ...) used by year-agnostic UI.
+- When creating shadows for components, use `filter: $drop-shadow-default;` instead of `box-shadow`. This correctly scale the shadow for the object and also keeps all shadows consistant and easy to change. 
 
 ## Design language
