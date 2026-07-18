@@ -1,24 +1,17 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { fn } from "storybook/test";
 import Modal from "./Modal";
 import Button from "../Button/Button";
 
-const meta = {
+export default {
 	title: "Components/Modal",
 	component: Modal,
 	parameters: {
 		layout: "fullscreen",
 	},
-	tags: ["autodocs"],
-	args: {
-		open: true,
-		setOpen: fn(),
-	},
 } satisfies Meta<typeof Modal>;
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Modal>;
 
 export const Default: Story = {
 	render: () => {

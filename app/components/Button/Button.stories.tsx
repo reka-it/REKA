@@ -1,25 +1,20 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { fn } from "storybook/test";
 import Button from "./Button";
 
-const meta = {
+export default {
 	title: "Components/Button",
 	component: Button,
 	parameters: {
 		layout: "centered",
 	},
-	tags: ["autodocs"],
-	args: {
-		onClick: fn(),
-	},
 } satisfies Meta<typeof Button>;
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
 	args: {
 		children: "Button",
 		type: "button",
 	},
+	render: (args) => <Button {...args} />,
 };

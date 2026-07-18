@@ -1,12 +1,18 @@
 @use "constants" as *;
 
-
 .card {
-  border: 2px solid $white;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.15s ease, opacity 0.15s ease;
-  background-color: $blue;
+  border: 2px solid $shadow-default;
+  background-color: $pink-2026;
   color: $white;
-  padding: 0.5vh;
+  padding: 1rem;
+
+  box-shadow: 7px 7px 0 $shadow-default;
+  translate: 0 0;
+  transition: background-color 150ms ease, opacity 150ms ease,
+    translate 150ms ease, box-shadow 150ms ease;
+
+  &:hover {
+    translate: 1px 1px;
+    box-shadow: 6px 6px 0 $shadow-default;
+  }
 }

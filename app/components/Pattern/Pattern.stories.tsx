@@ -1,24 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Pattern from "./Pattern";
 
-const meta = {
+export default {
 	title: "Components/Pattern",
 	component: Pattern,
 	parameters: {
 		layout: "fullscreen",
 	},
-	tags: ["autodocs"],
-	decorators: [
-		(Story) => (
-			<div style={{ position: "relative", width: "100%", height: "400px" }}>
-				<Story />
-			</div>
-		),
-	],
 } satisfies Meta<typeof Pattern>;
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Pattern>;
 
 export const Default: Story = {
 	args: {
@@ -26,4 +17,9 @@ export const Default: Story = {
 		largest: 12,
 		spacing: 40,
 	},
+	render: (args) => (
+		<div style={{ position: "relative", height: "400px" }}>
+			<Pattern {...args} />
+		</div>
+	),
 };

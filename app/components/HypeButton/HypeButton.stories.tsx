@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import HypeButton from "./HypeButton";
 
-const meta = {
+export default {
 	title: "Components/HypeButton",
 	component: HypeButton,
 	parameters: {
 		layout: "centered",
 	},
-	tags: ["autodocs"],
 } satisfies Meta<typeof HypeButton>;
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof HypeButton>;
 
-export const Default: Story = {};
+export const Default: Story = {
+	render: (args) => <HypeButton {...args} />,
+};

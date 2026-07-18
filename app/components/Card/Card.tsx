@@ -1,16 +1,19 @@
 import styles from "./Card.module.scss";
 
-type ButtonProps = {
-	onClick?: () => void;
+type CardProps = {
 	children?: React.ReactNode;
-	type?: "button" | "submit" | "reset";
 	className?: string;
+	style?: React.CSSProperties;
 };
 
-export default function Button({ onClick, children, type, className }: ButtonProps) {
+export default function Card({
+	children,
+	className = "",
+	style,
+}: CardProps) {
 	return (
-		<button onClick={onClick} type={type} className={[styles.card, className].filter(Boolean).join(" ")}>
+		<div className={`${styles.card} ${className}`} style={style}>
 			{children}
-		</button>
+		</div>
 	);
 }

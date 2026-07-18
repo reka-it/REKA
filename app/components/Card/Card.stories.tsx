@@ -1,25 +1,20 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { fn } from "storybook/test";
-import Button from "./Card";
+import Card from "./Card";
 
-const meta = {
-	title: "Components/Button",
-	component: Button,
+export default {
+	title: "Components/Card",
+	component: Card,
 	parameters: {
 		layout: "centered",
 	},
-	tags: ["autodocs"],
-	args: {
-		onClick: fn(),
-	},
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof Card>;
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Card>;
 
 export const Default: Story = {
 	args: {
-		children: "Button",
-		type: "button",
+		children: "UwU",
+		style: { width: "200px", height: "200px" },
 	},
+	render: (args) => <Card {...args} />,
 };

@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Footer from "./Footer";
 
-const meta = {
+export default {
 	title: "Components/Footer",
 	component: Footer,
 	parameters: {
 		layout: "fullscreen",
 	},
-	tags: ["autodocs"],
 } satisfies Meta<typeof Footer>;
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Footer>;
 
-export const Default: Story = {};
+export const Default: Story = {
+	render: (args) => <Footer {...args} />,
+};

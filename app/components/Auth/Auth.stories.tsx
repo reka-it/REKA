@@ -2,19 +2,19 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { fn } from "storybook/test";
 import Auth from "./Auth";
 
-const meta = {
+export default {
 	title: "Components/Auth",
 	component: Auth,
 	parameters: {
 		layout: "centered",
 	},
-	tags: ["autodocs"],
+} satisfies Meta<typeof Auth>;
+
+type Story = StoryObj<typeof Auth>;
+
+export const Default: Story = {
 	args: {
 		onSucsess: fn(),
 	},
-} satisfies Meta<typeof Auth>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Default: Story = {};
+	render: (args) => <Auth {...args} />,
+};
