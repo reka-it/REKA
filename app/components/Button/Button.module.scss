@@ -8,6 +8,13 @@
   padding: 10px;
   font-size: 15px;
   text-wrap: nowrap;
+  width: fit-content;
+  height: fit-content;
+
+  &:disabled {
+    filter: grayscale(50%);
+    cursor: not-allowed;
+  }
 }
 
 .standard {
@@ -28,6 +35,17 @@
     translate: 3px 3px;
     box-shadow: 4px 4px 0 $shadow-default;
   }
+
+  &:disabled {
+    translate: 3px 3px;
+    box-shadow: 3px 3px 0 $shadow-default;
+
+    &:hover,
+    &:active {
+      translate: 0 0;
+      box-shadow: 3px 3px 0 $shadow-default;
+    }
+  }
 }
 
 .centralized {
@@ -47,5 +65,16 @@
     transition: translate 50ms ease, box-shadow 50ms ease;
     translate: 0 3px;
     box-shadow: 0px 4px 0 3px $shadow-default;
+  }
+
+  &:disabled {
+    translate: 0 3px;
+    box-shadow: 0px 4px 0 3px $shadow-default;
+
+    &:hover,
+    &:active {
+      translate: 0 0;
+      box-shadow: 0px 3px 0 3px $shadow-default;
+    }
   }
 }

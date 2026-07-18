@@ -1,6 +1,7 @@
 @use "constants" as *;
 
 .dropdown {
+  position: absolute;
   background-color: $bg-default;
   border: 4px $on-bg-default solid;
   overflow: hidden;
@@ -10,10 +11,27 @@
   align-items: center;
   justify-content: space-around;
   padding: 10px;
+  gap: 10px;
   filter: $drop-shadow-default;
+
+  transition: opacity 300ms ease, scale 200ms ease, rotate 100ms ease;
 }
 
 .item {
   color: $on-bg-default;
   font-size: 20px;
+  text-wrap: nowrap;
+  cursor: pointer;
+}
+
+.closed {
+  opacity: 0;
+  scale: 0;
+  rotate: -45deg;
+}
+
+.open {
+  opacity: 1;
+  rotate: 0deg;
+  scale: 1;
 }

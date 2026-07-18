@@ -1,15 +1,31 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./DropDown.module.scss";
 
 type DropDownProps = {
-	open: boolean;
-	setOpen: (v: boolean) => void;
+	toggler: React.RefObject<HTMLElement | null>;
 	items: Array<string>;
 	onSelect?: (item: string) => void;
 };
 
-export default function DropDown({ open, setOpen, items, onSelect }: DropDownProps) {
+export default function DropDown({ toggler, items, onSelect }: DropDownProps) {
+	const [open, setOpen] = useState(false);
 	const dropDownRef = useRef<HTMLUListElement>(null);
+
+	useEffect(() => {
+		if (!toggler.current) return;
+
+		const handleClick = () => {
+			setOpen(v => !v);
+		}
+
+		toggler.current.addEventListener("click", handleClick)
+
+		return () => {
+			if (toggler.current) {
+				toggler.current.removeEventListener("click", handleClick)
+			}
+		}
+	}, [toggler])
 
 	useEffect(() => {
 		if (!open) return;
@@ -20,8 +36,9 @@ export default function DropDown({ open, setOpen, items, onSelect }: DropDownPro
 
 		const handleClickOutside = (event: MouseEvent) => {
 			if (
-				dropDownRef.current &&
-				!dropDownRef.current.contains(event.target as Node)
+				dropDownRef.current && toggler.current &&
+				!dropDownRef.current.contains(event.target as Node) &&
+				!toggler.current.contains(event.target as Node)
 			) {
 				setOpen(false);
 			}
@@ -37,27 +54,15 @@ export default function DropDown({ open, setOpen, items, onSelect }: DropDownPro
 		};
 	}, [open, setOpen]);
 
-	const handleBlur = (event: React.FocusEvent<HTMLUListElement>) => {
-		if (
-			dropDownRef.current &&
-			!dropDownRef.current.contains(event.relatedTarget as Node)
-		) {
-			setOpen(false);
-		}
-	};
-
 	const handleSelect = (item: string) => {
 		onSelect?.(item);
 		setOpen(false);
 	};
 
-	if (!open) return null;
-
 	return (
-		<ul className={styles.dropdown}
+		<ul className={`${styles.dropdown} ${open ? styles.open : styles.closed}`}
 			tabIndex={-1}
 			ref={dropDownRef}
-			onBlur={handleBlur}
 			role="menu"
 		>
 			{items?.map((item) => (

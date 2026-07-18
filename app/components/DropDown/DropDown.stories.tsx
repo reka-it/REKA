@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import DropDown from "./DropDown";
 import Button from "../Button/Button";
@@ -18,11 +18,11 @@ export const Default: Story = {
 		items: ["Option 1", "Option 2", "Option 3"],
 	},
 	render: (args) => {
-		const [open, setOpen] = useState(false);
+		const ref = useRef<HTMLElement>(null)
 		return (
 			<div style={{ position: "relative" }}>
-				<Button type="button" onClick={() => setOpen(true)}>Toggle</Button>
-				<DropDown {...args} open={open} setOpen={setOpen} />
+				<Button ref={ref}>Toggle</Button>
+				<DropDown {...args} toggler={ref} />
 			</div>
 		);
 	},

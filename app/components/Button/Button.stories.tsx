@@ -7,14 +7,22 @@ export default {
 	parameters: {
 		layout: "centered",
 	},
+	args: {
+		children: "Button",
+		type: "button",
+	},
 } satisfies Meta<typeof Button>;
 
 type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
+	render: (args) => <Button {...args} />,
+};
+
+export const Disabled: Story = {
 	args: {
-		children: "Button",
-		type: "button",
-	},
+        disabled: true,
+        styling: "standard"
+    },
 	render: (args) => <Button {...args} />,
 };
