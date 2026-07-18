@@ -2,13 +2,13 @@
 @use "../../mixins" as *;
 
 .title {
-    text-align: center;
-    font-size: 3rem;
-    margin: auto;  
-    width: fit-content;
-    padding: 1vh;
+  text-align: center;
+  font-size: 9cqi; // container query units, each sigil is scaled to % of parent
+  margin: auto;
+  width: fit-content;
+  padding: 1vh;
 }
 
 .wrapper {
-    padding: 2vh 6vh 2vh 6vh;
+  padding: 2vh 6vh 2vh 6vh;
 }

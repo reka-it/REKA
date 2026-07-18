@@ -2,55 +2,47 @@
 @use "../../mixins" as *;
 
 .navBar {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    align-items: center;
-    background-color: $blue;
-    border-bottom: 2px solid $blue-dark;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $blue;
+  border-bottom: 2px solid $blue-dark;
+  height: 70px;
+  padding-right: 20px;
+  padding-left: 20px;
 
-    @include for-mobile-only {
-        grid-template-columns: 1fr 1fr;
-    }
+  @include for-mobile-only {
+    height: 50px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+.logoWrapper {
+  position: relative;
+  height: 90%;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .logo {
-    position: relative;
-    width: 16vw;
-    height: 6vh;
-    background-image: url('/reka-logo-3d.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    cursor: pointer;
+  cursor: pointer;
+  height: 100%;
+  transition: filter 100ms ease;
 
-    @include for-mobile-only {
-        width: 100%;
-    }
+  &:hover {
+    filter: brightness(110%);
+  }
 }
 
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
 
-.logoWrapper {
-    margin: 1vh;
-}
-
-.button {
-    margin: 1vh;
-    background-color: $red-light !important;
-    flex-basis: 8vw; 
-    height: 6vh;
-
-    @include for-mobile-only {
-        flex-basis: 20vw;
-    }
-}
-
-.buttonWrapper {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 100%;
-    padding-right: 1vh;
-
-    @include for-mobile-only {
-        justify-content: center;
-    }
+  @include for-mobile-only {
+    display: none;
+  }
 }

@@ -12,9 +12,14 @@ export default function Navbar({ className }: NavbarProps) {
 	return (
 		<nav className={[styles.navBar, className].filter(Boolean).join(" ")}>
 			<div className={styles.logoWrapper}>
-				<div onClick={() => navigate("/")} className={styles.logo}></div>
+				<img
+					src="/reka-logo-3d.svg"
+					alt="REKA"
+					onClick={() => navigate("/")}
+					className={styles.logo}
+				/>
 			</div>
-			<div className={styles.buttonWrapper}>
+			<div className={styles.buttons}>
 				<Button className={styles.button} type="button" onClick={() => navigate("/earlier")}>
 					Tidligere REKA
 				</Button>
