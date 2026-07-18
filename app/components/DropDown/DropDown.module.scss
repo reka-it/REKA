@@ -22,16 +22,25 @@
   font-size: 20px;
   text-wrap: nowrap;
   cursor: pointer;
+
+  transition: scale 100ms ease, fitler 100ms ease;
+
+  &:hover {
+    scale: 1.05;
+    filter: contrast(200%);
+  }
+}
+
+.selected {
+  color: $tertiary-default;
 }
 
 .closed {
   opacity: 0;
   scale: 0;
-  rotate: -45deg;
 }
 
 .open {
   opacity: 1;
-  rotate: 0deg;
   scale: 1;
 }

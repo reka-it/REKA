@@ -4,10 +4,11 @@ import styles from "./DropDown.module.scss";
 type DropDownProps = {
 	toggler: React.RefObject<HTMLElement | null>;
 	items: Array<string>;
-	onSelect?: (item: string) => void;
+	onSelect?: (item: string, index: number) => void;
+	selected?: number;
 };
 
-export default function DropDown({ toggler, items, onSelect }: DropDownProps) {
+export default function DropDown({ toggler, items, onSelect, selected }: DropDownProps) {
 	const [open, setOpen] = useState(false);
 	const dropDownRef = useRef<HTMLUListElement>(null);
 
@@ -54,8 +55,8 @@ export default function DropDown({ toggler, items, onSelect }: DropDownProps) {
 		};
 	}, [open, setOpen]);
 
-	const handleSelect = (item: string) => {
-		onSelect?.(item);
+	const handleSelect = (item: string, index: number) => {
+		onSelect?.(item, index);
 		setOpen(false);
 	};
 
@@ -65,14 +66,14 @@ export default function DropDown({ toggler, items, onSelect }: DropDownProps) {
 			ref={dropDownRef}
 			role="menu"
 		>
-			{items?.map((item) => (
-				<li className={styles.item}
+			{items?.map((item, i) => (
+				<li className={`${styles.item} ${i == selected && styles.selected}`}
 					key={item}
 					role="menuitem"
 					tabIndex={0}
-					onClick={() => handleSelect(item)}
+					onClick={() => handleSelect(item, i)}
 					onKeyDown={(e) => {
-						if (e.key === "Enter" || e.key === " ") handleSelect(item);
+						if (e.key === "Enter" || e.key === " ") handleSelect(item, i);
 					}}
 				>
 					{item}
