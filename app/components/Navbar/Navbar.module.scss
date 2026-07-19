@@ -6,24 +6,34 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: $blue;
-  border-bottom: 2px solid $blue-dark;
   height: 4rem;
   padding-right: 1rem;
   padding-left: 1rem;
 
   @include for-mobile-only {
     height: 3rem;
-    padding-right: .5rem;
-    padding-left: .5rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
   }
+}
+
+.navBar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1.2rem;
+  right: 1.2rem;
+  height: 4px;
+  border-radius: 1rem;
+  background: $on-bg-default;
+  margin-bottom: -0.3rem;
 }
 
 .logoWrapper {
   position: relative;
   height: 90%;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .logo {

@@ -14,7 +14,7 @@ export default function Home() {
 	//Add suspense component for loading state
 	return (
 		<>
-			<Page className={styles.page}>
+			<Page navBarClassName={styles.navBar} className={styles.page}>
 				<Title className={styles.title}>Summer of '69</Title>
 				<div className={styles.triangleLeft}>
 					<Pattern

@@ -13,8 +13,7 @@ type PageProps = {
 export default function Page({ children, className, navBarClassName, footerClassName }: PageProps) {
 	return (
 		<>
-			<GrainOverlay />
-			<Navbar className={navBarClassName} />
+			<Navbar className={[styles.navBar, navBarClassName].filter(Boolean).join(" ")} />
 			<main className={[styles.content, className].filter(Boolean).join(" ")}>
 				{children}
 			</main>

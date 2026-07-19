@@ -20,14 +20,14 @@ export default function Navbar({ className }: NavbarProps) {
 				/>
 			</div>
 			<div className={styles.buttons}>
+				<Button className={styles.button} type="button" onClick={() => navigate("/info")}>
+					Om oss
+				</Button>
 				<Button className={styles.button} type="button" onClick={() => navigate("/earlier")}>
-					Tidligere REKA
+					Tidligere
 				</Button>
 				<Button className={styles.button} type="button" onClick={() => navigate("/admin")}>
 					Admin
-				</Button>
-				<Button className={styles.button} type="button" onClick={() => navigate("/auth")}>
-					Auth
 				</Button>
 			</div>
 		</nav>

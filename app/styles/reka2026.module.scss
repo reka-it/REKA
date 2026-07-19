@@ -3,12 +3,22 @@
 
 //Styling specific to the REKA 26
 
+.navBar,
+.page {
+  //This is where you choose the theme colour so that it overrides the default one
+  background-color: $bg-2026;
+}
+
 .page {
     font-family: $font-caprisimo;
     display: flex;
     flex-direction: column;
-    background-color: $lime;
-      color: $red;
+    color: $red;
+}
+
+.navBar::after {
+  //This is the navBar bottom border colour
+  background: $on-bg-2026;
 }
 
 ////////////////////////////////////
