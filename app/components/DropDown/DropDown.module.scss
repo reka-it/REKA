@@ -10,8 +10,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  padding: 10px;
-  gap: 10px;
+  padding: .5rem;
+  gap: .5rem;
   filter: $drop-shadow-default;
 
   transition: opacity 300ms ease, scale 200ms ease, rotate 100ms ease;
@@ -19,7 +19,7 @@
 
 .item {
   color: $on-bg-default;
-  font-size: 20px;
+  font-size: 1.2rem;
   text-wrap: nowrap;
   cursor: pointer;
 

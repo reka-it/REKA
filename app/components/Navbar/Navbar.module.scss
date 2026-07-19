@@ -8,14 +8,14 @@
   align-items: center;
   background-color: $blue;
   border-bottom: 2px solid $blue-dark;
-  height: 70px;
-  padding-right: 20px;
-  padding-left: 20px;
+  height: 4rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
 
   @include for-mobile-only {
-    height: 50px;
-    padding-right: 10px;
-    padding-left: 10px;
+    height: 3rem;
+    padding-right: .5rem;
+    padding-left: .5rem;
   }
 }
 
@@ -40,7 +40,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 15px;
+  gap: 1rem;
 
   @include for-mobile-only {
     display: none;
