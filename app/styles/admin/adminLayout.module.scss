@@ -1,0 +1,85 @@
+@use "../../constants.scss" as *;
+@use "../../mixins.scss" as *;
+
+.page {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  padding: .8rem;
+  gap: .8rem;
+  color: $on-bg-default;
+  background: $bg-default;
+}
+
+.section {
+  border: 2px solid $shadow-default;
+  box-shadow: .9rem .9rem 0 $shadow-default;
+}
+
+.nav {
+  position: relative;
+  @extend .section;
+  background: $primary-default;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+
+  width: 33%;
+  height: 100%;
+}
+
+.return {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  cursor: pointer;
+}
+
+.pages {
+  height: 66%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 2rem;
+}
+
+.pageButton {
+  background: $primary-default;
+  color: $white;
+  min-width: 50%;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.selected {
+  background: $bg-default;
+  color: $primary-default;
+}
+
+.header {
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+
+  &:hover {
+    scale: 1.03;
+  }
+}
+
+.reka {
+  font-size: 2rem;
+  color: $bg-default;
+}
+
+.content {
+  @extend .section;
+  height: 100%;
+  width: 66%;
+  padding: 1rem;
+}

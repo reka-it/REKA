@@ -9,6 +9,7 @@
   height: 4rem;
   padding-right: 1rem;
   padding-left: 1rem;
+  background: $bg-default;
 
   @include for-mobile-only {
     height: 3rem;

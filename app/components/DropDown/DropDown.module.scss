@@ -2,19 +2,22 @@
 
 .dropdown {
   position: absolute;
+  z-index: 1000;
   background-color: $bg-default;
-  border: 4px $on-bg-default solid;
+  border: 2px $shadow-default solid;
   overflow: hidden;
-  overflow-y: auto;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  padding: .5rem;
-  gap: .5rem;
-  filter: $drop-shadow-default;
+  padding: .7rem;
+  gap: .7rem;
+  box-shadow: .7rem .7rem 0 $shadow-default;
 
-  transition: opacity 300ms ease, scale 200ms ease, rotate 100ms ease;
+  list-style: none;
+
+  transition: opacity 300ms ease, scale 200ms ease;
 }
 
 .item {
@@ -32,7 +35,7 @@
 }
 
 .selected {
-  color: $tertiary-default;
+  color: $primary-default;
 }
 
 .closed {

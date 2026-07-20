@@ -1,4 +1,4 @@
-import { type RouteConfig, index, route, prefix } from "@react-router/dev/routes";
+import { type RouteConfig, index, route, prefix, layout } from "@react-router/dev/routes";
 
 export default [
 	index("routes/home.tsx"),
@@ -6,7 +6,14 @@ export default [
 		route("2026", "routes/reka/reka2026.tsx"),
 		route(":slug", "routes/reka/ingenReka.tsx"),
 	]),
-	route("admin", "routes/admin.tsx"),
+	...prefix("admin", [
+		layout("routes/admin/adminLayout.tsx", [
+			index("routes/admin/index.tsx"),
+			route("users", "routes/admin/users.tsx"),
+			route("styling", "routes/admin/styling.tsx"),
+			route("rekaer", "routes/admin/rekaer.tsx"),
+		]),
+	]),
 	route("auth", "routes/auth.tsx"),
 	route("earlier", "routes/earlier.tsx"),
 	route("feedback", "routes/feedback.tsx"),

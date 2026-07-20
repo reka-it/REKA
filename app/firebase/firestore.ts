@@ -1,8 +1,7 @@
-import { addDoc, collection, setDoc, doc, updateDoc, getDoc, increment, query, orderBy } from "firebase/firestore";
+import { getDocs, addDoc, collection, setDoc, doc, updateDoc, getDoc, increment, query, orderBy } from "firebase/firestore";
 import type { DocumentReference, DocumentData } from "firebase/firestore";
 import { db } from "./firebase";
-import type { Account, DbUser } from "./user"
-import { getDocs } from "firebase/firestore/lite";
+import type { Account, DbUser, Role } from "./user"
 
 export type Sorting = "asc" | "desc";
 
@@ -44,6 +43,11 @@ export async function updateUserHypeCount(account: Account | null) {
 	if (!account) return;
 	const ref = doc(db, "users", account.uid);
 	await updateDoc(ref, { hype: increment(1) });
+}
+
+export async function updateUserRole(uid: string, role: Role) {
+	const ref = doc(db, "users", uid);
+	await updateDoc(ref, { role });
 }
 
 // this function does not create a authed user, but rather the database version from a uid

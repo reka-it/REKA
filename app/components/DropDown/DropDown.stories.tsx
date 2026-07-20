@@ -18,12 +18,20 @@ export const Default: Story = {
 		items: ["Option 1", "Option 2", "Option 3"],
 	},
 	render: (args) => {
-		const ref = useRef<HTMLElement>(null);
 		const [selected, setSelected] = useState(0);
+		const [open, setOpen] = useState(false)
+		const anchor = useRef(null)
+
 		return (
 			<div style={{ position: "relative" }}>
-				<Button ref={ref}>Toggle</Button>
-				<DropDown {...args} toggler={ref} selected={selected} onSelect={(_, index) => setSelected(index)} />
+				<Button ref={anchor} onClick={() => setOpen(v => !v)}>Toggle</Button>
+				<DropDown {...args}
+					anchorRef={anchor}
+					open={open}
+					setOpen={setOpen}
+					selected={selected}
+					onSelect={(_, index) => setSelected(index)}
+				/>
 			</div>
 		);
 	},

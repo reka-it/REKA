@@ -10,19 +10,21 @@ import type { Account, DbUser, Role } from "./user";
 // user is the database version which stores user related values like role, 
 // role here is essentialy just user.role but easier if you don't need user
 interface AuthState {
-	account: Account | null,
-	user: DbUser | null,
-	role: Role,
+	account: Account | null;
+	user: DbUser | null;
+	role: Role;
 	loading: boolean;
+	isRole: (requiredRole: Role) => boolean;
+	hasAccess: (requiredRole: Role) => boolean;
+	getAccessLevel: () => number;
 }
 
-const roleLevel: Record<Exclude<Role, null>, number> = {
+const roleLevel: Record<Role, number> = {
+	guest: 0,
 	user: 1,
 	admin: 2,
 	dev: 3,
 };
-
-export type AuthRequirement = Exclude<Role, null> | "guest";
 
 export function goBack(navigate: NavigateFunction) {
 	if (window.history.state?.idx > 0) {
@@ -32,11 +34,11 @@ export function goBack(navigate: NavigateFunction) {
 	}
 }
 
-export function useAuth(requiredRole?: AuthRequirement): AuthState {
+export function useAuth(requiredRole?: Role): AuthState {
 	// fields
 	const [account, setAccount] = useState<Account | null>(null);
 	const [user, setUser] = useState<DbUser | null>(null);
-	const role = user?.role ?? null;
+	const role = user?.role ?? "guest";
 	const [loading, setLoading] = useState(true);
 
 	const navigate = useNavigate();
@@ -77,17 +79,28 @@ export function useAuth(requiredRole?: AuthRequirement): AuthState {
 		return () => unsubscribeDoc();
 	}, [account]);
 
+	const hasAccess = (requiredRole: Role): boolean => {
+		return roleLevel[role] >= roleLevel[requiredRole];
+	}
+
+	const isRole = (requiredRole: Role): boolean => {
+		return requiredRole === role;
+	}
+
+	const getAccessLevel = (): number => roleLevel[role];
+
 	useEffect(() => {
 		if (!requiredRole || loading) return;
 
-		if (requiredRole === "guest") {
+		if (isRole("guest")) {
 			if (account) goBack(navigate);
 			return;
 		}
 
-		if (role && roleLevel[role] >= roleLevel[requiredRole]) return;
+		if (hasAccess(requiredRole)) return;
+
 		goBack(navigate);
 	}, [requiredRole, loading, role, account, navigate]);
 
-	return { account, user, role, loading };
+	return { account, user, role, loading, isRole, hasAccess, getAccessLevel };
 }
