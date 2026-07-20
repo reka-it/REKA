@@ -1,11 +1,12 @@
 import styles from "./GrainOverlay.module.scss";
 
-export default function GrainOverlay() {
+export default function GrainOverlay({ intensity = 0.8 }: { intensity?: number }) {
 	return (
 		<svg
 			className={styles.grain}
 			viewBox="0 0 1000 1000"
 			preserveAspectRatio="none"
+			style={{ opacity: intensity }}
 		>
 			<filter id="noiseFilter">
 				<feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" stitchTiles="stitch" />
