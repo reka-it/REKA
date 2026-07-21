@@ -1,7 +1,6 @@
 import styles from "./Page.module.scss";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import GrainOverlay from "../GrainOverlay/GrainOverlay";
 
 type PageProps = {
 	children?: React.ReactNode;
@@ -13,7 +12,6 @@ type PageProps = {
 export default function Page({ children, className, navBarClassName, footerClassName }: PageProps) {
 	return (
 		<>
-			<GrainOverlay intensity={0.6} />
 			<Navbar className={[styles.navBar, navBarClassName].filter(Boolean).join(" ")} />
 			<main className={[styles.content, className].filter(Boolean).join(" ")}>
 				{children}

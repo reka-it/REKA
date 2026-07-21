@@ -1,7 +1,10 @@
 @use "../constants.scss" as *;
 @use "../mixins.scss" as *;
 
-//Styling specific to the REKA 26
+
+////////////////////////////////////
+// Page wide styling
+////////////////////////////////////
 
 .navBar,
 .page {
@@ -25,51 +28,100 @@
 // Content
 ////////////////////////////////////
 
-.title {
+.title h1{
   @include color-shadow(3,($orange,$yellow,$green,$blue));
   @include for-mobile-only {
-    padding: 2vh 0 2vh 0;
+    padding: 0 0 2vh 0;
+    @include color-shadow(2,($orange,$yellow,$green,$blue));
   }
 }
 
-.triangleLeft {
-  position: absolute;
-  left: 50px;
-  bottom: 200px;
-  rotate: -30deg;
-  width: 20rem;
-  height: 7rem;
-  clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 60%);
-  overflow: hidden;
-  fill: red;
+.title h5 {
+  transform: translateY(0.7rem);
+  color: $reke;
+
+  @include for-mobile-only {
+    transform: translateY(0.4rem);
+  }
 }
 
-.triangleRight {
-  position: absolute;
-  right: 50px;
-  bottom: 200px;
-  rotate: 200deg;
-  width: 20rem;
-  height: 7rem;
-  clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 60%);
-  overflow: hidden;
+.title h5 span {
+  color: $red-2026;
+  display: inline-block;
+  transform: scale(1.15) rotate(-2deg) translate(0.1rem,-0.1rem);
+  -webkit-text-stroke: 0.8px darken($orange-2026, 15%);
 }
 
-.panel {
-  border: 2px $white solid;
-  background: $green-dark;
-  width: 20rem;
-  height: 13rem;
-  position: relative;
-  margin: 10px;
+.title h6 {
+  color: $on-bg-2026;
+  opacity: 48%;
+
+  @include for-mobile-only {
+    opacity: 60%;
+    transform: translateY(-0.3rem);
+  }
 }
 
-.tag {
-  border: 2px $white solid;
-  background: $green-dark;
-  padding: 10px;
-  position: relative;
-  width: fit-content;
-  color: $white;
-  margin: 10px;
+.title div{
+  background-color: $bg-light-2026;
+}
+
+.map {
+  margin: 0 8.6rem 0 8.6rem;
+  height: 80vh;
+
+  @include for-mobile-only {
+    margin: 0 1.5rem 0 1.5rem;
+    height: 30vh;
+  }
+}
+
+.cardWrapper {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  grid-template-rows: repeat(24, 1fr);
+  font-size: 0.7rem;
+  margin: 3.5rem 2rem 3.5rem 2rem;
+ 
+}
+
+.info {
+  //TODO fiks layout for desktop
+  @include for-mobile-only {
+    grid-column: 1 / 11;
+    grid-row: 1 / 5;
+  }
+}
+
+.insta {
+  box-shadow: -$box-shadow-default $box-shadow-default 0 $shadow-default;
+  //TODO fiks layout for desktop
+  @include for-mobile-only {
+    grid-column: 16 / 24;
+    grid-row: 4 / 7;
+  }
+  background-color: $blue;
+}
+
+.hype {
+  //TODO fiks layout for desktop
+  @include for-mobile-only {
+    grid-column: 3 / 14;
+    grid-row: 7 / 12;
+  }
+}
+
+.hype button {
+  width: 100%;
+
+  background-color: $blue;
+}
+
+.visibleLines {
+  column-rule-style: solid; //Bare for debug
+  column-rule-color: red; //Bare for debug
+  column-rule-width: 3px; //Bare for debug
+  row-rule-style: solid; //Bare for debug
+  row-rule-color: red; //Bare for debug
+  row-rule-width: 3px; //Bare for debug
 }

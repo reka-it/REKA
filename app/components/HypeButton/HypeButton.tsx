@@ -5,9 +5,10 @@ import { useHypeCounter } from "~/firebase/useHypeCounter";
 import { useAuth } from "~/firebase/useAuth";
 
 type HypeButtonProps = {
+	className?: string;
 };
 
-export default function HypeButton({ }: HypeButtonProps) {
+export default function HypeButton({className}: HypeButtonProps) {
 	const { account } = useAuth()
 	const { data, loading } = useHypeCounter();
 
@@ -17,7 +18,7 @@ export default function HypeButton({ }: HypeButtonProps) {
 	}
 
 	return (
-		<button className={styles.hype} onClick={onClick}>
+		<button className={`${styles.hype} ${className}`} onClick={onClick}>
 			<span className={styles.counter}>
 				{data && data.hype}
 			</span>

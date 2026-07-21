@@ -17,7 +17,7 @@ $yellow: #FFBF2F;
 $pink: #F352A9;
 $orange: #FE904E;
 $lime: #B2FF57;
-$white: white;
+$white: #FFFDD0;
 
 $mobile-bp-upper: 768px;
 
@@ -33,12 +33,15 @@ $accent-default: #F5ADC1;
 $shadow-default: #243763;
 $drop-shadow-default: drop-shadow(10px 10px 0 $shadow-default);
 
+$box-shadow-default: 9px;
+
 $font-header-default: "Holtwood One SC", serif;
 $font-paragraph-default: "Gveret Levin", cursive;
 
 // reka 2026
 $bg-2026: #B0FC57;
 $on-bg-2026: #80B93D;
+$bg-light-2026: #CEFD97;
 $blue-2026: #447EF3;
 $blue-dark-2026: color.adjust($blue, $lightness: -10%);
 $green-2026: #00B353;
