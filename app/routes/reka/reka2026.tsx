@@ -40,6 +40,12 @@ export default function Home() {
 						</h5>
 						<HypeButton/>
 					</Card>
+					<Card className={styles.countdown}>
+						<h3>Countdown type shi</h3>
+					</Card>
+					<Card className={styles.program}>
+						<h2>Nice å ha en komponent her kanskje? (Program)</h2>
+					</Card>
 				</div>
 			</Page >
 		</>
