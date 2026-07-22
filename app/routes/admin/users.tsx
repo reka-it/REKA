@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useAuth } from "~/firebase/useAuth";
+import { useAuth, roleLevel } from "~/firebase/useAuth";
 import { getDbUsers, updateUserRole } from "~/firebase/firestore";
 import type { DbUser, Role } from "~/firebase/user";
 import styles from "~/styles/admin/users.module.scss";
@@ -12,6 +12,13 @@ function formatDate(value: DbUser["createdAt"]) {
 	return date.toLocaleDateString();
 }
 
+function truncate(text: string, max: number) {
+	return (text.length > max ? `${text.slice(0, max).trim()}…` : text);
+}
+
+const NAME_MAX = 16;
+const EMAIL_MAX = 20;
+
 const ROLE_OPTIONS: Role[] = ["user", "admin", "dev"];
 
 function UserRow({ user: u, onRoleChange }: { user: Row; onRoleChange: (id: string, role: Role) => void }) {
@@ -19,11 +26,17 @@ function UserRow({ user: u, onRoleChange }: { user: Row; onRoleChange: (id: stri
 	const [open, setOpen] = useState(false);
 	const anchor = useRef(null)
 
+	const canEdit = getAccessLevel() >= roleLevel[u.role];
+
+	function copy(text: string) {
+		navigator.clipboard.writeText(text);
+	}
+
 	return (
 		<tr>
-			<td> {u.name} </td>
-			<td> {u.email} </td>
-			<td className={`${styles.interactable} ${styles.center}`} onClick={() => setOpen(v => !v)} ref={anchor}>
+			<td className={styles.name} title={u.name} onClick={() => copy(u.name)}> {truncate(u.name, NAME_MAX)} </td>
+			<td className={styles.email} title={u.email} onClick={() => copy(u.name)}> {truncate(u.email, EMAIL_MAX)} </td>
+			<td className={`${styles.role} ${!canEdit && styles.disabled}`} title={u.role} onClick={() => canEdit && setOpen(v => !v)} ref={anchor}>
 				{u.role}
 				<DropDown
 					anchorRef={anchor}
@@ -34,9 +47,8 @@ function UserRow({ user: u, onRoleChange }: { user: Row; onRoleChange: (id: stri
 					onSelect={(item) => onRoleChange(u.id, item as Role)}
 				/>
 			</td>
-			<td className={styles.center}> {u.hype} </td>
-			<td className={styles.center}> {formatDate(u.createdAt)} </td>
-
+			<td className={styles.hype} title={u.hype.toString()}> {u.hype} </td>
+			<td className={styles.date} title={formatDate(u.createdAt)} onClick={() => copy(u.name)}> {formatDate(u.createdAt)} </td>
 		</tr>
 	);
 }
@@ -71,7 +83,7 @@ export default function Users() {
 								<th> email </th>
 								<th> role </th>
 								<th> hype </th>
-								<th> created at </th>
+								<th> date </th>
 							</tr>
 						</thead>
 						<tbody>

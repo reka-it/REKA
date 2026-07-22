@@ -9,10 +9,10 @@
 }
 
 .table {
-  width: 100%;
   border-collapse: separate;
   border-spacing: 1rem 1.2rem;
   text-align: left;
+  min-width: 100%;
 
   th {
     padding: 0;
@@ -23,6 +23,11 @@
     padding: 1px 5px;
     border-bottom: 2px dotted $on-bg-default;
     z-index: 10;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    transition: color 150ms ease, scale 150ms ease, filter 150ms ease;
   }
 
   thead {
@@ -32,17 +37,62 @@
     position: sticky;
     top: 0;
   }
-}
 
-.interactable {
-  position: relative;
-  cursor: pointer;
 
-  &:hover {
-    scale: 1.03;
+  .interactable {
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+      color: $primary-default;
+      scale: 1.03;
+    }
   }
-}
 
-.center {
-  text-align: center;
+  .center {
+    text-align: center;
+  }
+
+  .role {
+    @extend .center, .interactable;
+  }
+
+  .name {
+    @extend .copyable;
+  }
+
+  .date {
+    @extend .center, .copyable;
+  }
+
+  .email {
+    @extend .copyable;
+  }
+
+  .hype {
+    @extend .center;
+  }
+
+  .disabled {
+    opacity: 0.7;
+
+    &:hover {
+      color: $on-bg-default;
+      scale: 1;
+      text-decoration: line-through;
+      cursor: not-allowed;
+    }
+  }
+
+  .copyable {
+    cursor: copy;
+
+    &:hover {
+      filter: brightness(110%);
+    }
+
+    &:active {
+      scale: 0.98;
+    }
+  }
 }

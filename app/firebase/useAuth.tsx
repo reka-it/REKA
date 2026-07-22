@@ -19,7 +19,7 @@ interface AuthState {
 	getAccessLevel: () => number;
 }
 
-const roleLevel: Record<Role, number> = {
+export const roleLevel: Record<Role, number> = {
 	guest: 0,
 	user: 1,
 	admin: 2,
