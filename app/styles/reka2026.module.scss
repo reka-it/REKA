@@ -80,25 +80,37 @@
   display: grid;
   grid-template-columns: repeat(24, 1fr);
   grid-template-rows: repeat(24, 1fr);
-  font-size: 0.7rem;
+
   margin: 3.5rem 2rem 3.5rem 2rem;
- 
+  height: 200vh;
+
+  @include for-mobile-only {
+      grid-template-rows: repeat(48, 1fr);
+      height: 58rem;
+      font-size: clamp(0.6rem, 0.5rem + 0.7vw, 0.7rem);
+  }
 }
+
+.cardWrapper > * {
+  min-width: 0;
+}
+
 
 .info {
   //TODO fiks layout for desktop
   @include for-mobile-only {
     grid-column: 1 / 11;
-    grid-row: 1 / 5;
+    grid-row: 1 / 11;
   }
 }
 
 .insta {
   box-shadow: -$box-shadow-default $box-shadow-default 0 $shadow-default;
+  align-items: center;
   //TODO fiks layout for desktop
   @include for-mobile-only {
-    grid-column: 16 / 24;
-    grid-row: 4 / 7;
+    grid-column: 16 / 25;
+    grid-row: 8 / 16;
   }
   background-color: $blue;
 }
@@ -106,8 +118,8 @@
 .hype {
   //TODO fiks layout for desktop
   @include for-mobile-only {
-    grid-column: 3 / 14;
-    grid-row: 7 / 12;
+    grid-column: 2 / 14;
+    grid-row: 16 / 30;
   }
 }
 
@@ -124,4 +136,22 @@
   row-rule-style: solid; //Bare for debug
   row-rule-color: red; //Bare for debug
   row-rule-width: 3px; //Bare for debug
+}
+
+.countdown {
+  background-color: $orange-2026;
+  //TODO fiks layout for desktop
+  @include for-mobile-only {
+    grid-column: 16 / 25;
+    grid-row: 28 / 32;
+  }
+}
+
+.program {
+  background-color: $blue-2026;
+  //TODO fiks layout for desktop
+  @include for-mobile-only {
+    grid-column: 2 / 24;
+    grid-row: 36 / 49;
+  }
 }

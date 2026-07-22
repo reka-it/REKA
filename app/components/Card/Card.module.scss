@@ -14,7 +14,7 @@
 
   &:hover {
     translate: 1px 1px;
-    box-shadow: calc($box-shadow-default - 1px) calc($box-shadow-default - 1px) 0 $shadow-default;
+    box-shadow: -calc($box-shadow-default - 1px) calc($box-shadow-default - 1px) 0 $shadow-default;
   }
 }
 
