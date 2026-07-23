@@ -20,7 +20,7 @@
   position: relative;
   @extend .section;
   background: $primary-default;
-  color: $white;
+  color: $white-default;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -50,7 +50,7 @@
 
 .pageButton {
   background: $primary-default;
-  color: $white;
+  color: $white-default;
   min-width: 50%;
   font-size: 1.5rem;
   text-transform: uppercase;
@@ -63,7 +63,7 @@
 
 .header {
   font-size: 2rem;
-  color: white;
+  color: $white-default;
   cursor: pointer;
 
   &:hover {

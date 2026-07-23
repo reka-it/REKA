@@ -7,16 +7,16 @@ export default function Admin() {
 			{user &&
 				<div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
 					<span>
-						USER
+						BRUKER
 					</span>
 					<span>
-						name:  {user.name}
+						Navn:  {user.name}
 					</span>
 					<span>
-						email:  {user.email}
+						Email:  {user.email}
 					</span>
 					<span>
-						role:  {user.role}
+						Rolle:  {user.role}
 					</span>
 				</div>
 			}

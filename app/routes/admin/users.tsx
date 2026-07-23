@@ -79,11 +79,11 @@ export default function Users() {
 					<table className={styles.table}>
 						<thead>
 							<tr>
-								<th> name </th>
-								<th> email </th>
-								<th> role </th>
-								<th> hype </th>
-								<th> date </th>
+								<th> Navn </th>
+								<th> Email </th>
+								<th> Rolle </th>
+								<th> Hype </th>
+								<th> Dato </th>
 							</tr>
 						</thead>
 						<tbody>

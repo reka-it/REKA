@@ -6,5 +6,6 @@
   min-height: 100vh;
   overflow: hidden;
   background: var(--bg, $bg-default);
-  color: var(--on-bg, $on-bg-default);
+  color: var(--text-color, $on-bg-default);
+  font-family: var(--font, $font-paragraph-default);
 }

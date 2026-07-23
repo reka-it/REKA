@@ -14,7 +14,7 @@ export default function AdminPage() {
 			<div className={styles.page}>
 				<div className={styles.nav}>
 					<span className={styles.return} onClick={() => navigate("/")}>
-						back
+						Tilbake
 					</span>
 					<h1 className={styles.header} onClick={() => navigate("/admin")}>
 						ADMIN
@@ -24,7 +24,7 @@ export default function AdminPage() {
 							className={`${styles.pageButton} ${isActive("/admin/users") ? styles.selected : ""}`}
 							onClick={() => navigate("/admin/users")}
 						>
-							Users
+							Brukere
 						</Button>
 						<Button
 							className={`${styles.pageButton} ${isActive("/admin/styling") ? styles.selected : ""}`}
