@@ -1,17 +1,14 @@
-import Modal from "../Modal/Modal";
+import Modal, { type ModalProps } from "../Modal/Modal";
 import Auth from "../Auth/Auth";
 import styles from "./AuthModal.module.scss";
 
-type AuthModalProps = {
-	open: boolean;
-	setOpen: (v: boolean) => void;
-};
+export interface AuthModalProps extends Omit<ModalProps, "children"> { };
 
-export default function AuthModal({ open, setOpen }: AuthModalProps) {
+export default function AuthModal({ ...modalProps }: AuthModalProps) {
 	return (
-		<Modal open={open} setOpen={setOpen}>
+		<Modal {...modalProps}>
 			<div className={styles.container}>
-				<Auth onSucsess={() => setOpen(false)} />
+				<Auth onSucsess={() => modalProps.setOpen(false)} className="style-2026" />
 			</div>
 		</Modal>
 	);

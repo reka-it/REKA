@@ -1,22 +1,24 @@
 import styles from "./Page.module.scss";
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
+import type { ReactNode } from "react";
 
 type PageProps = {
-	children?: React.ReactNode;
-	className?: string; //Styling for the Page's main content area
-	navBarClassName?: string;
-	footerClassName?: string;
+	navbar?: ReactNode;
+	footer?: ReactNode;
+	mouse?: ReactNode;
+
+	children?: ReactNode;
+	className?: string;
 };
 
-export default function Page({ children, className, navBarClassName, footerClassName }: PageProps) {
+export default function Page({ children, navbar, footer, mouse, className }: PageProps) {
 	return (
 		<>
-			<Navbar className={[styles.navBar, navBarClassName].filter(Boolean).join(" ")} />
-			<main className={[styles.content, className].filter(Boolean).join(" ")}>
+			{mouse}
+			{navbar}
+			<main className={`${styles.page} ${className}`}>
 				{children}
 			</main>
-			<Footer className={footerClassName} />
+			{footer}
 		</>
 	)
 }

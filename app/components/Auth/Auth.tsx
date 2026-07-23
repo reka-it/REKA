@@ -8,7 +8,7 @@ import { useAuth } from "~/firebase/useAuth";
 import Input from "../Input/Input";
 
 type AuthProps = {
-	onSucsess: () => void
+	onSucsess: () => void;
 };
 
 type Mode = "login" | "signup" | "logout"
@@ -39,7 +39,7 @@ const signupSchema = z.object({
 type LoginFormValues = z.infer<typeof loginSchema>;
 type SignupFormValues = z.infer<typeof signupSchema>;
 
-export default function Auth({ onSucsess }: AuthProps) {
+export default function Auth({ onSucsess, className }: AuthProps) {
 	const { account, loading } = useAuth();
 	const [mode, setMode] = useState<Mode>("login");
 	const [pending, setPending] = useState(false);
@@ -89,7 +89,7 @@ export default function Auth({ onSucsess }: AuthProps) {
 	};
 
 	return (
-		<div className={styles.container}>
+		<div className={`${styles.container}`}>
 			{!account &&
 				<div className={styles.tabs}>
 					<button

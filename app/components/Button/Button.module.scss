@@ -3,7 +3,7 @@
 .button {
   border: 2px solid $shadow-default;
   cursor: pointer;
-  background-color: $blue;
+  background-color: var(--primary);
   color: $white;
   padding: .5rem;
   font-size: 1rem;

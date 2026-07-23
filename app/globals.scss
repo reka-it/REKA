@@ -1,0 +1,21 @@
+@use "constants.scss" as *;
+
+.style-default {
+  --bg: #{$bg-default};
+  --on-bg: #{$on-bg-default};
+  --primary: #{$primary-default};
+  --secondary: #{$secondary-default};
+  --tertiary: #{$tertiary-default};
+  --accent: #{$accent-default};
+  --shadow: #{$shadow-default};
+}
+
+.style-2026 {
+  --bg: #{$bg-2026};
+  --on-bg: #{$on-bg-2026};
+  --primary: #{$blue-2026};
+  --secondary: #{$pink-2026};
+  --tertiary: #{$yellow-2026};
+  --accent: #{$orange-2026};
+  --shadow: #{$shadow-default};
+}

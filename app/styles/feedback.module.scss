@@ -7,18 +7,18 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  background: $bg-default;
+  background: var(--bg);
 }
 
 .heading {
-  color: $primary-default;
+  color: var(--primary);
   font-size: 80px;
 }
 
 .area {
-  background: $bg-default;
-  border: $on-bg-default 4px solid;
-  color: $on-bg-default;
+  background: var(--bg);
+  border: var(--on-bg) 4px solid;
+  color: var(--on-bg);
   font-size: 16px;
   padding: 10px;
   outline: none;

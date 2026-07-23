@@ -1,10 +1,9 @@
-@use "../../constants.scss" as *;
-@use "../../mixins.scss" as *;
+@use "constants.scss" as *;
+@use "mixins.scss" as *;
 
 .page {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
-  overflow: hidden;
   display: flex;
   padding: .8rem;
   gap: .8rem;
@@ -79,7 +78,9 @@
 
 .content {
   @extend .section;
-  height: 100%;
   width: 66%;
+  height: 100%;
   padding: 1rem;
+  overflow: hidden;
+  transition: height 200ms ease-in-out;
 }

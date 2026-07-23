@@ -1,3 +1,5 @@
+@use "constants.scss" as *;
+
 *,
 *::before,
 *::after {
@@ -11,6 +13,5 @@ body {
   height: 100%;
   font-family: sans-serif;
   font-size: 1rem;
-  background: #FFEBB7;
-  color: #AD8E70;
+  background: $bg-default;
 }

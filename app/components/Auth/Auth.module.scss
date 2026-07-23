@@ -18,9 +18,9 @@
 
 .tab {
   appearance: none;
-  border: $shadow-default 2px solid;
+  border: var(--shadow) 2px solid;
   background-color: transparent;
-  color: $secondary-default;
+  color: var(--secondary);
   font-size: 16px;
   font-weight: bold;
   padding: 8px 18px;
@@ -28,18 +28,18 @@
   transition: background-color 0.15s ease, color 0.15s ease;
 
   &:hover {
-    background-color: rgba($shadow-default, 0.06);
+    background-color: rgba(var(--shadow), 0.06);
   }
 }
 
 .tabActive {
   @extend .tab;
-  background-color: $primary-default;
-  border-color: $shadow-default;
+  background-color: var(--primary);
+  border-color: var(--shadow);
   color: #fff;
 
   &:hover {
-    background-color: darken($primary-default, 8%);
+    filter: brightness(90%);
   }
 }
 
@@ -62,9 +62,9 @@
 
 .submit {
   appearance: none;
-  border: $shadow-default 2px solid;
-  box-shadow: 10px 10px 0 $shadow-default;
-  background-color: $primary-default;
+  border: var(--shadow) 2px solid;
+  box-shadow: 10px 10px 0 var(--shadow);
+  background-color: var(--primary);
   color: #fff;
   font-size: 18px;
   font-weight: bold;
@@ -73,16 +73,16 @@
   transition: box-shadow 0.15s ease, transform 0.15s ease, background-color 0.15s ease, width 150ms ease, height 150ms ease;
 
   &:hover:not(:disabled) {
-    background-color: darken($primary-default, 8%);
+    filter: brightness(90%);
   }
 
   &:active:not(:disabled) {
-    box-shadow: 4px 4px 0 $shadow-default;
+    box-shadow: 4px 4px 0 var(--shadow);
     transform: translate(6px, 6px);
   }
 
   &:disabled {
-    background-color: $secondary-default;
+    background-color: var(--secondary);
     cursor: not-allowed;
     opacity: 0.7;
   }
@@ -111,7 +111,7 @@
 
   &:disabled {
     background-color: transparent;
-    border-color: $secondary-default;
-    color: $secondary-default;
+    border-color: var(--secondary);
+    color: var(--secondary);
   }
 }

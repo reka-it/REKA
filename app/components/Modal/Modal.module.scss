@@ -15,9 +15,9 @@
 }
 
 .modal {
-  background-color: $bg-default;
-  color: $on-bg-default;
-  border: 4px $on-bg-default solid;
+  background-color: var(--bg);
+  color: var(--on-bg);
+  border: 4px var(--on-bg) solid;
   padding: 10px;
   min-width: 320px;
   max-width: 90vw;

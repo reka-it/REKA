@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { useEffect, useRef } from "react";
 import styles from "./Modal.module.scss";
 
-type ModalProps = {
+export interface ModalProps {
 	open: boolean;
 	setOpen: (v: boolean) => void;
 	children?: ReactNode;
@@ -33,7 +33,7 @@ export default function Modal({ open, setOpen, children }: ModalProps) {
 	return (
 		<div className={styles.overlay} onClick={() => setOpen(false)}>
 			<div
-				className={styles.modal}
+				className={`${styles.modal}`}
 				role="dialog"
 				aria-modal="true"
 				tabIndex={-1}

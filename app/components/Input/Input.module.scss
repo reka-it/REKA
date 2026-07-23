@@ -19,7 +19,7 @@
 
 .label {
   font-size: 20px;
-  color: $on-bg-default;
+  color: var(--on-bg);
 }
 
 .error {
@@ -33,19 +33,19 @@
 .input {
   z-index: 2;
   appearance: none;
-  border: $on-bg-default 4px solid;
+  border: var(--on-bg) 4px solid;
   filter: $drop-shadow-default;
   padding: 10px 14px;
   font-size: 16px;
-  background-color: $bg-default;
-  color: $on-bg-default;
+  background-color: var(--bg);
+  color: var(--on-bg);
   outline: none;
   transition: border-color 120ms ease;
   width: 100%;
   height: 100%;
 
   &:focus {
-    border-color: $shadow-default;
+    border-color: var(--shadow);
   }
 
   &:disabled {

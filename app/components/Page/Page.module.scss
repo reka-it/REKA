@@ -1,9 +1,10 @@
-@use "../../_constants" as *;
-@use "../../mixins" as *;
+@use "constants" as *;
+@use "mixins" as *;
 
-.content {
-  width: 100%;
-  min-height: 90vh;
-  background: $bg-default;
-  color: $on-bg-default;
+.page {
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--bg, $bg-default);
+  color: var(--on-bg, $on-bg-default);
 }

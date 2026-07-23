@@ -11,6 +11,7 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.scss";
+import "./globals.scss";
 import styles from "./styles/root.module.scss";
 
 export const links: LinksFunction = () => [
