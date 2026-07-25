@@ -11,7 +11,6 @@ export default function Layout() {
 			footer={<Footer className="style-default" />}
 			className="style-default"
 		>
-			<GrainOverlay />
 			<Outlet />
 		</Page>
 	)

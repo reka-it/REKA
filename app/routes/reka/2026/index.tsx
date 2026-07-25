@@ -16,15 +16,16 @@ export function meta({ }: Route.MetaArgs) {
 export default function Home() {
 	const { user, hasAccess } = useAuth();
 	//Add suspense component for loading state
-	//Kartet e utdatert, men me har ikke et nytt kart for nå og det e samme sted
+	//Kartet e utdatert, men me har ikke et nytt kart for nå, og det e samme sted
 	return (
 		<>
 			<Title className={styles.title}>Summer of '69</Title>
 			<Card className={styles.map} bgtype="image" src="/map.png"></Card>
 			<div className={`${styles.cardWrapper} ${hasAccess("admin") ? styles.visibleLines : ""}`}>
 				<Card className={styles.info} bgtype="normal">
-					<h2>Litt basic info type shit</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					<h2>MG's festival</h2>
+					<p>Hvert år arrangerer vi i MG Norges eldste og viktigste kulturfestival!! Innhold, tema og sted varier fra år til år.</p>
+					<p>Årets tema er Summer of '69✌️</p>
 				</Card>
 				<Card className={styles.insta} bgtype="pattern">
 					<h2>Instagram</h2>
@@ -38,7 +39,7 @@ export default function Home() {
 					</h5>
 					<HypeButton />
 				</Card>
-				<Card className={styles.countdown}>
+				<Card className={styles.countdown} bgtype="pattern">
 					<Countdown targetDate={new Date(2026, 7, 21)}/>
 				</Card>
 				<Card className={styles.program}>
