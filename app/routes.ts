@@ -23,6 +23,7 @@ export default [
 		route("auth", "routes/auth.tsx"),
 		route("earlier", "routes/earlier.tsx"),
 		route("feedback", "routes/feedback.tsx"),
+		route("web", "routes/web.tsx"),
 		route("*", "routes/notFound.tsx"),
 	]),
 ] satisfies RouteConfig;

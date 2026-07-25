@@ -192,11 +192,21 @@
 
 .LowerFlowerOrange {
   position:absolute;
+  overflow: visible;
 
   @include for-mobile-only {
     grid-column: 2;
     grid-row: 12;
     z-index: 1;
+  }
+}
+
+.LowerFlowerOrange text {
+  @include for-mobile-only {
+    fill: $white-default;
+    opacity: 70%;
+    font-size: 0.3rem;
+    font-family: inherit;
     pointer-events: none;
   }
 }
