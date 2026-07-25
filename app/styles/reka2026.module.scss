@@ -1,29 +1,6 @@
 @use "../constants.scss" as *;
 @use "../mixins.scss" as *;
 
-
-////////////////////////////////////
-// Page wide styling
-////////////////////////////////////
-
-.navBar,
-.page {
-  //This is where you choose the theme colour so that it overrides the default one
-  background-color: $bg-2026;
-}
-
-.page {
-    font-family: $font-caprisimo;
-    display: flex;
-    flex-direction: column;
-    color: $red;
-}
-
-.navBar::after {
-  //This is the navBar bottom border colour
-  background: $on-bg-2026;
-}
-
 ////////////////////////////////////
 // Content
 ////////////////////////////////////
@@ -38,7 +15,7 @@
 
 .title h5 {
   transform: translateY(0.7rem);
-  color: $reke;
+  color: $reke-default;
 
   @include for-mobile-only {
     transform: translateY(0.4rem);
@@ -69,6 +46,7 @@
 .map {
   margin: 0 8.6rem 0 8.6rem;
   height: 80vh;
+  max-height: 400px;
 
   @include for-mobile-only {
     margin: 0 1.5rem 0 1.5rem;
@@ -77,11 +55,13 @@
 }
 
 .cardWrapper {
+  position:relative;
   display: grid;
   grid-template-columns: repeat(24, 1fr);
   grid-template-rows: repeat(24, 1fr);
+  container-type: size;
 
-  margin: 3.5rem 2rem 3.5rem 2rem;
+  margin: 3.5rem 1.5rem 3.5rem 1.5rem;
   height: 200vh;
 
   @include for-mobile-only {
@@ -140,10 +120,14 @@
 
 .countdown {
   background-color: $orange-2026;
+  text-align: center;
+  
   //TODO fiks layout for desktop
   @include for-mobile-only {
     grid-column: 16 / 25;
     grid-row: 28 / 32;
+    line-height: 2.3rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -153,5 +137,65 @@
   @include for-mobile-only {
     grid-column: 2 / 24;
     grid-row: 36 / 49;
+    z-index: 2;
+  }
+}
+
+////////////////////////////////////
+// Flowers (Fuck svg-er bro)
+////////////////////////////////////
+
+.trioFlowerRed {
+  position: absolute;
+
+  @include for-mobile-only {
+    z-index: 1;
+    pointer-events: none;
+    top: -6%;
+    left: 63%;
+  }
+}
+
+.trioFlowerBlue {
+  position: absolute;
+
+  @include for-mobile-only {
+    z-index: 1;
+    pointer-events: none;
+    top: -5%;
+    left: 51.5%;
+  }
+}
+
+.trioFlowerOrange {
+  position: absolute;
+
+  @include for-mobile-only {
+    z-index: 1;
+    pointer-events: none;
+    top: 2%;
+    left: 56%;
+  }
+}
+
+.LowerFlowerOrange {
+  position:absolute;
+
+  @include for-mobile-only {
+    grid-column: 2;
+    grid-row: 12;
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+
+.programFlower {
+  position: absolute;
+
+  @include for-mobile-only {
+    z-index: 1;
+    pointer-events: none;
+    top: 68%;
+    left: -7%;
   }
 }

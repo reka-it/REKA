@@ -7,14 +7,14 @@
     isolation: isolate;
     width: 100%;
     min-height: 22vh;
-    background-color: $reke;
+    background-color: $reke-default;
     color: $white-default;
     font-size: 0.8rem;
     display: flex;
     justify-content: space-around;
     padding: 0 8vw 0 8vw;
     overflow: hidden;
-    border-top: 2px solid $reke-dark;
+    border-top: 2px solid $reke-default-dark;
 
     &::before,
     &::after {
@@ -29,7 +29,7 @@
 
     &::before {
         background-image:
-            linear-gradient(rgba($reke, 0.6), rgba($reke, 0.3)),
+            linear-gradient(rgba($reke-default, 0.6), rgba($reke-default, 0.3)),
             var(--footer-logo-image);
         background-size: 5%;
         opacity: 1;
@@ -41,7 +41,7 @@
 
     &::after {
         background-image:
-            linear-gradient(rgba($reke, 0.6), rgba($reke, 0.3)),
+            linear-gradient(rgba($reke-default, 0.6), rgba($reke-default, 0.3)),
             url('/web-logo.png');
         background-size: 4%;
         opacity: 0;

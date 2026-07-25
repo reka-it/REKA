@@ -3,18 +3,27 @@
 //Denne må holdes oppdatert med _constants.scss
 
 :export {
-  reke: $reke;
-  reke-dark: $reke-dark;
-  reke-light: $reke-light;
-  blue: $blue;
-  blue-dark: $blue-dark;
-  green: $green;
-  green-dark: $green-dark;
-  red-light: $red-light;
-  red: $red;
-  yellow: $yellow;
-  pink: $pink;
-  orange: $orange;
-  lime: $lime;
-  white-default: $white-default;
+  bg_default: $bg-default;
+  on_bg_default: $on-bg-default;
+  primary_default: $primary-default;
+  secondary_default: $secondary-default;
+  tertiary_default: $tertiary-default;
+  accent_default: $accent-default;
+  shadow_default: $shadow-default;
+  drop_shadow_default: $drop-shadow-default;
+  box_shadow_default: $box-shadow-default;
+  white_default: $white-default;
+
+  bg_2026: $bg-2026;
+  on_bg_2026: $on-bg-2026;
+  bg_light_2026: $bg-light-2026;
+  blue_2026: $blue-2026;
+  blue_dark_2026: $blue-dark-2026;
+  green_2026: $green-2026;
+  green_dark_2026: $green-dark-2026;
+  red-light_2026: $red-light-2026;
+  red_2026: $red-2026;
+  yellow_2026: $yellow-2026;
+  pink_2026: $pink-2026;
+  orange_2026: $orange-2026;
 }

@@ -8,4 +8,5 @@
   background: var(--bg, $bg-default);
   color: var(--text-color, $on-bg-default);
   font-family: var(--font, $font-paragraph-default);
+  z-index: -1;
 }

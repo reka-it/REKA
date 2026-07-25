@@ -4,9 +4,6 @@
 // Altså primary-2026 og primary-2027 osv
 
 // temp farger til alt blir overført til -2026
-$reke: #E59887;
-$reke-dark: color.adjust($reke, $lightness: -5%);
-$reke-light: color.adjust($reke, $lightness: 5%);
 $blue: #447EF3;
 $blue-dark: color.adjust($blue, $lightness: -10%);
 $green: #00B353;
@@ -34,6 +31,9 @@ $accent-default: #F5ADC1;
 $shadow-default: #243763;
 $drop-shadow-default: drop-shadow(10px 10px 0 $shadow-default);
 $white-default: #FFFDD0;
+$reke-default: #E59887;
+$reke-default-dark: color.adjust($reke-default, $lightness: -5%);
+$reke-default-light: color.adjust($reke-default, $lightness: 5%);
 
 $box-shadow-default: 9px;
 
