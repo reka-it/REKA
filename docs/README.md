@@ -2,7 +2,7 @@
 
 ## Info
 
-Skrivet på engelsk siden det er lettere, tooo bad vis du ikke liker det :D.
+Skrevet på engelsk siden det er lettere, tooo bad vis du ikke liker det :D.
 Noe er autogenerert av claude, kan derfor være småfeil eller utdaterte ting.
 
 ### Docs
@@ -21,4 +21,4 @@ Documentation for the REKA.
 
 - New doc pages go in this folder and should be linked from this readme.
 - Images in [`images/`](./images).
-- Every year a mostly new crew will inherit this project, this means that writing and keeping docs updated is essencial. see [Contributing](./contributing.md).
+- Every year a mostly new crew will inherit this project, this means that writing and keeping docs updated is essencial. See [Contributing](./contributing.md).

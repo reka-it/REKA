@@ -1,8 +1,8 @@
 # REKA
 
-Nye nettsiden til REKA festivalen
+Velkommen til den nye nettsiden for 🦐REKA festivalen🦐!!!
 
-## Vis du har en github konto bør du 🌟 REKA NÅ!!
+## 🌟 for å følge med på nettsidens utvikling!!!
 
 ### Development
 
@@ -12,4 +12,4 @@ npm run dev
 
 ## DOCS
 
-Dokumentajon here -> [Docs/](./docs)
+Les den fantastiske dokumentasjonen vår her -> [Docs/](./docs)
