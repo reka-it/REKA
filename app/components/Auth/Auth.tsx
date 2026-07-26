@@ -39,7 +39,7 @@ const signupSchema = z.object({
 type LoginFormValues = z.infer<typeof loginSchema>;
 type SignupFormValues = z.infer<typeof signupSchema>;
 
-export default function Auth({ onSucsess, className }: AuthProps) {
+export default function Auth({ onSucsess }: AuthProps) {
 	const { account, loading } = useAuth();
 	const [mode, setMode] = useState<Mode>("login");
 	const [pending, setPending] = useState(false);
@@ -123,7 +123,7 @@ export default function Auth({ onSucsess, className }: AuthProps) {
 					</div>
 				) : (
 					mode === "login" ? (
-						<div className={styles.inputs}>
+						<div className={styles.inputs} key="login">
 							<Input
 								label="Email"
 								id="email"
@@ -144,7 +144,7 @@ export default function Auth({ onSucsess, className }: AuthProps) {
 							/>
 						</div>
 					) : (
-						<div className={styles.inputs}>
+						<div className={styles.inputs} key="signup">
 							<Input
 								label="Name"
 								id="name"
