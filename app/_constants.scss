@@ -31,6 +31,7 @@ $accent-default: #F5ADC1;
 $shadow-default: #243763;
 $drop-shadow-default: drop-shadow(10px 10px 0 $shadow-default);
 $white-default: #FFFDD0;
+$black-default: black;
 $reke-default: #E59887;
 $reke-default-dark: color.adjust($reke-default, $lightness: -5%);
 $reke-default-light: color.adjust($reke-default, $lightness: 5%);

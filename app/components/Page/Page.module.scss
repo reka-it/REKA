@@ -2,7 +2,6 @@
 @use "mixins" as *;
 
 .page {
-  width: 100vw;
   min-height: 100vh;
   overflow: hidden;
   background: var(--bg, $bg-default);
