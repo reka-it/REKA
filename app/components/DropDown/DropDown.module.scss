@@ -3,7 +3,7 @@
 .dropdown {
   position: absolute;
   z-index: 1000;
-  background-color: $bg-default;
+  background-color: var(--bg);
   border: 2px $shadow-default solid;
   overflow: hidden;
 
@@ -21,7 +21,7 @@
 }
 
 .item {
-  color: $on-bg-default;
+  color: var(--on-bg);
   font-size: 1.2rem;
   text-wrap: nowrap;
   cursor: pointer;
@@ -35,7 +35,7 @@
 }
 
 .selected {
-  color: $primary-default;
+  color: var(--primary);
 }
 
 .closed {

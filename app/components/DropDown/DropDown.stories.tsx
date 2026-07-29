@@ -15,7 +15,7 @@ type Story = StoryObj<typeof DropDown>;
 
 export const Default: Story = {
 	args: {
-		items: ["Option 1", "Option 2", "Option 3"],
+		items: [{ id: "o1", display: "option 1" }, { id: "o2", display: "option 2" }, { id: "o3", display: "option 3" }]
 	},
 	render: (args) => {
 		const [selected, setSelected] = useState(0);

@@ -42,9 +42,9 @@ function UserRow({ user: u, onRoleChange }: { user: Row; onRoleChange: (id: stri
 					anchorRef={anchor}
 					open={open}
 					setOpen={setOpen}
-					items={ROLE_OPTIONS.slice(0, getAccessLevel())}
+					items={ROLE_OPTIONS.slice(0, getAccessLevel()).map(item => ({ id: item, display: item }))}
 					selected={ROLE_OPTIONS.indexOf(u.role)}
-					onSelect={(item) => onRoleChange(u.id, item as Role)}
+					onSelect={(id, _) => onRoleChange(u.id, id as Role)}
 				/>
 			</td>
 			<td className={styles.hype} title={u.hype.toString()}> {u.hype} </td>

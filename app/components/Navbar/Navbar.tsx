@@ -3,7 +3,8 @@ import Button from "../Button/Button";
 import { useNavigate } from "react-router";
 import { useAuth } from "~/firebase/useAuth";
 import AuthModal from "../AuthModal/AuthModal";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import DropDown from "../DropDown/DropDown";
 
 type NavbarProps = {
 	className?: string;
@@ -13,6 +14,8 @@ export default function Navbar({ className }: NavbarProps) {
 	const navigate = useNavigate();
 	const { user, hasAccess } = useAuth();
 	const [modalOpen, setModalOpen] = useState(false);
+	const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+	const mobileAnchor = useRef(null);
 
 	return (
 		<nav className={[styles.navBar, className].filter(Boolean).join(" ")}>
@@ -44,6 +47,33 @@ export default function Navbar({ className }: NavbarProps) {
 					</Button>
 				}
 			</div>
+			<div className={`${styles.menu} ${mobileDropdownOpen && styles.active}`}
+				onClick={() => setMobileDropdownOpen(v => !v)}
+				ref={mobileAnchor}
+			>
+				<span className={`${mobileDropdownOpen && styles.active1}`} />
+				<span className={`${mobileDropdownOpen && styles.active3}`} />
+				<span className={`${mobileDropdownOpen && styles.active2}`} />
+			</div>
+			<DropDown
+				items={[
+					{ id: "/info", display: "Om oss" },
+					{ id: "/earlier", display: "Tidligere" },
+					...(hasAccess("admin") ? [{ id: "/admin", display: "Admin" }] : []),
+					{ id: "auth", display: user ? "bruker" : "login / signup" },
+				]}
+				open={mobileDropdownOpen}
+				setOpen={setMobileDropdownOpen}
+				selected={-1}
+				onSelect={(id, _) => {
+					if (id == "auth") {
+						setModalOpen(true);
+						return;
+					}
+					navigate(id);
+				}}
+				anchorRef={mobileAnchor}
+			/>
 			<AuthModal open={modalOpen} setOpen={setModalOpen} />
 		</nav>
 	);
