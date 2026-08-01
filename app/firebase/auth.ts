@@ -6,7 +6,7 @@ import {
 	type User as FirebaseUser,
 } from "firebase/auth";
 import { auth, db } from "./firebase";
-import { createUser } from "./firestore";
+import { createUser, createMeaning } from "./firestore";
 import { getDocs, where } from "firebase/firestore/lite";
 import { collection, query, updateDoc } from "firebase/firestore";
 import type { Role } from "./user";
@@ -41,11 +41,17 @@ function mapAuthError(code: string): { field: AuthErrorField; message: string } 
 	}
 }
 
-export async function signUp(email: string, password: string, name: string): Promise<AuthResult> {
+export async function signUp(email: string, password: string, name: string, meaning: string): Promise<AuthResult> {
 	try {
 		const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 		await updateProfile(userCredential.user, { displayName: name });
 		await createUser(userCredential.user.uid, email, name);
+
+		try {
+			await createMeaning(userCredential.user, meaning);
+		} catch (err) {
+			console.error("Failed to save meaning:", err);
+		}
 
 		return { success: true, user: userCredential.user };
 	} catch (error: any) {

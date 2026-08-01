@@ -6,7 +6,7 @@ export default [
 		...prefix("2026", [
 			layout("routes/reka/2026/layout.tsx", [
 				index("routes/reka/2026/index.tsx"),
-				route("feedback", "routes/feedback.tsx", { id: "reka-2026-feedback" }),
+				route("feedback", "routes/default/feedback.tsx", { id: "reka-2026-feedback" }),
 			]),
 		]),
 		route(":slug", "routes/reka/ingenReka.tsx"),
@@ -20,10 +20,11 @@ export default [
 		]),
 	]),
 	layout("routes/default/layout.tsx", [
-		route("auth", "routes/auth.tsx"),
-		route("earlier", "routes/earlier.tsx"),
-		route("feedback", "routes/feedback.tsx"),
-		route("web", "routes/web.tsx"),
-		route("*", "routes/notFound.tsx"),
+		route("auth", "routes/default/auth.tsx"),
+		route("earlier", "routes/default/earlier.tsx"),
+		route("feedback", "routes/default/feedback.tsx"),
+		route("info","routes/default/info.tsx"),
+		route("web", "routes/default/web.tsx"),
+		route("*", "routes/default/notFound.tsx"),
 	]),
 ] satisfies RouteConfig;

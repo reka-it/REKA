@@ -16,6 +16,8 @@ type timeLeft = {
 function useCountdown(targetDate: Date) {
     const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
+
+
     function calculateTimeLeft() {
         const diff = new Date(targetDate).getTime() - new Date().getTime();
         if (diff <= 0) {return {days: 0, hours: 0, minutes: 0, seconds: 0, done: true}}
@@ -37,7 +39,16 @@ function useCountdown(targetDate: Date) {
 }
 
 export default function Countdown({className, targetDate} : CountdownProps) {
+    const [mounted, setMounted] = useState(false);
     const { days, hours, minutes, seconds, done } = useCountdown(targetDate);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) return null;
+
+
     if (done) {
         return <div>REKA HAR BEGYNT!</div>
     }

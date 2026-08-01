@@ -1,0 +1,45 @@
+@use "../constants.scss" as *;
+@use "../mixins.scss" as *;
+
+.Title {
+    text-align: center;
+    margin: 1.5rem;
+    font-size: 3rem;
+
+    @include for-mobile-only {
+        font-size: 1.5rem;
+    }
+}
+
+.Register {
+    text-align: center;
+    transform: translateY(-1.2rem);
+}
+
+.MeaningWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin: 2rem;
+
+    @include for-mobile-only {
+        grid-template-columns: 1fr 1fr;
+        margin: 0.5rem 2rem;
+    }
+}
+
+.MeaningWrapper div {
+    background-color: $white-default;
+    border: 2px solid $black-default;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    min-height: 5rem;
+
+    overflow-wrap: break-word;
+    word-break: break-word; 
+
+    @include for-mobile-only {
+        min-height: 9rem;
+    }
+}

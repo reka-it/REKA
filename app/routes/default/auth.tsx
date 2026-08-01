@@ -1,5 +1,5 @@
 import { redirect, useNavigate } from "react-router";
-import type { Route } from "./+types/auth";
+import type { Route }from "../+types/home";
 import Page from "~/components/Page/Page";
 import Auth from "~/components/Auth/Auth";
 import { goBack, useAuth } from "~/firebase/useAuth";

@@ -24,8 +24,7 @@ export default function Home() {
 			<div className={`${styles.cardWrapper} ${hasAccess("admin") ? styles.visibleLines : ""}`}>
 				<Card className={styles.info} bgtype="normal">
 					<h2>MG's festival</h2>
-					<p>Hvert år arrangerer vi i MG Norges eldste og viktigste kulturfestival!! Innhold, tema og sted varier fra år til år.</p>
-					<p>Årets tema er Summer of '69✌️</p>
+					<p>Hvert år arrangerer vi i MG Norges eldste og viktigste kulturfestival!! Innhold, tema og sted varier fra år til år. Årets tema er Summer of '69✌️</p>
 				</Card>
 				<Card className={styles.insta} bgtype="pattern" patternColor="#22d">
 					<h2>Instagram</h2>

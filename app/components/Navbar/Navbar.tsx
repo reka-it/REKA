@@ -29,7 +29,7 @@ export default function Navbar({ className }: NavbarProps) {
 			</div>
 			<div className={styles.buttons}>
 				<Button className={styles.button} type="button" onClick={() => navigate("/info")}>
-					Om oss
+					Om REKA
 				</Button>
 				<Button className={styles.button} type="button" onClick={() => navigate("/earlier")}>
 					Tidligere
@@ -57,7 +57,7 @@ export default function Navbar({ className }: NavbarProps) {
 			</div>
 			<DropDown
 				items={[
-					{ id: "/info", display: "Om oss" },
+					{ id: "/info", display: "Om REKA" },
 					{ id: "/earlier", display: "Tidligere" },
 					...(hasAccess("admin") ? [{ id: "/admin", display: "Admin" }] : []),
 					{ id: "auth", display: user ? "bruker" : "login / signup" },

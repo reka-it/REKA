@@ -8,6 +8,7 @@
   align-items: center;
   flex-direction: column;
   padding: 20px;
+  overflow: auto;
 }
 
 .tabs {
@@ -50,6 +51,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 1rem 0;
 }
 
 .inputs {
@@ -57,7 +59,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 30px;
+  gap: 1px;
 }
 
 .submit {

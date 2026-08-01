@@ -13,6 +13,11 @@
     padding: 0 2rem 0 2rem;
 }
 
+img {
+    font-size: 1rem;
+    -webkit-text-stroke: 0.7px $black-default;
+}
+
 .cardWrapper div {
     flex-basis: 25%;
     height: 20rem;

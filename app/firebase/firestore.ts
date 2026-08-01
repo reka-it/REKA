@@ -1,4 +1,4 @@
-import { getDocs, addDoc, collection, setDoc, doc, updateDoc, getDoc, increment, query, orderBy } from "firebase/firestore";
+import { getDocs, addDoc, collection, setDoc, doc, updateDoc, getDoc, increment, query, orderBy, where, limit } from "firebase/firestore";
 import type { DocumentReference, DocumentData } from "firebase/firestore";
 import { db } from "./firebase";
 import type { Account, DbUser, Role } from "./user"
@@ -102,6 +102,55 @@ export async function getAllFeedback(
 		id: doc.id,
 		...(doc.data() as Feedback),
 	}));
+}
+
+interface Meaning {
+	by: string | null;
+	message: string;
+}
+
+export async function createMeaning(
+	account: Account | null,
+	message: string
+): Promise<DocumentReference> {
+	const ref = collection(db, "meaning");
+	const content = {
+		by: account ? account.uid : null,
+		message: message,
+		randomNumb: Math.random(),
+	};
+	return await addDoc(ref, content);
+}
+
+export async function getRandomMeanings(
+	amount: number
+): Promise<Array<Meaning & { id: string }>> {
+	if (amount <= 0) return [];
+
+	const ref = collection(db, "meaning");
+	const pivot = Math.random();
+
+	const firstQuery = query(
+		ref,
+		where("randomNumb", ">=", pivot),
+		orderBy("randomNumb"),
+		limit(amount)
+	);
+	const firstSnap = await getDocs(firstQuery);
+	const results = firstSnap.docs.map(d => ({ id: d.id, ...(d.data() as Meaning) }));
+
+	if (results.length < amount) {
+		const remaining = amount - results.length;
+		const secondQuery = query(
+			ref,
+			where("randomNumb", "<", pivot),
+			orderBy("randomNumb"),
+			limit(remaining)
+		);
+		const secondSnap = await getDocs(secondQuery);
+		results.push(...secondSnap.docs.map(d => ({ id: d.id, ...(d.data() as Meaning) })));
+	}
+	return results;
 }
 
 export async function getDbUser(uid: string): Promise<DbUser | null> {

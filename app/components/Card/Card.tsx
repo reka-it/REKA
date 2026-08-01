@@ -8,6 +8,7 @@ type CardProps = {
 	style?: React.CSSProperties;
 	bgtype?: "normal" | "pattern" | "image";
 	src?: string;
+	alt?: string;
 	patternColor?: string;
 	patternOpacity?: number;
 };
@@ -18,6 +19,7 @@ export default function Card({
 	style,
 	bgtype = "normal",
 	src,
+	alt,
 	patternColor = "#fff",
 	patternOpacity = 0.3,
 }: CardProps) {
@@ -30,7 +32,7 @@ export default function Card({
 				<Pattern smallest={7} largest={7} spacing={20} opacity={patternOpacity} color={patternColor} offsetY={oy} offsetX={ox} />
 			}
 			{bgtype === "image" &&
-				<img src={src} className={styles.image} />
+				<img src={src} className={styles.image} alt={alt}/>
 			}
 			{children}
 		</div>

@@ -26,14 +26,17 @@ const loginSchema = z.object({
 const signupSchema = z.object({
 	name: z
 		.string()
-		.min(4, "Name is required"),
+		.min(4, "Navn er påkrevd"),
 	email: z
 		.string()
-		.min(1, "Email is required")
-		.email("Enter a valid email"),
+		.min(1, "Email er påkrevd")
+		.email("Ikke en valid email"),
 	password: z
 		.string()
-		.min(6, "Must be at least 6 characters"),
+		.min(6, "Må være minst 6 tegn langt"),
+	meaning: z
+	.string()
+	.max(63, "For lang melding"),
 });
 
 type LoginFormValues = z.infer<typeof loginSchema>;
@@ -52,7 +55,7 @@ export default function Auth({ onSucsess }: AuthProps) {
 
 	const signupForm = useForm<SignupFormValues>({
 		resolver: zodResolver(signupSchema),
-		defaultValues: { name: "", email: "", password: "" },
+		defaultValues: { name: "", email: "", password: "", meaning: "", },
 		mode: "onChange",
 	});
 
@@ -71,7 +74,7 @@ export default function Auth({ onSucsess }: AuthProps) {
 
 	const onSignup = async (data: SignupFormValues) => {
 		setPending(true);
-		const result = await signUp(data.email, data.password, data.name);
+		const result = await signUp(data.email, data.password, data.name, data.meaning);
 
 		if (!result.success) {
 			signupForm.setError(result.field, { message: result.message });
@@ -146,7 +149,7 @@ export default function Auth({ onSucsess }: AuthProps) {
 					) : (
 						<div className={styles.inputs} key="signup">
 							<Input
-								label="Name"
+								label="Navn"
 								id="name"
 								type="text"
 								autoComplete="name"
@@ -164,13 +167,22 @@ export default function Auth({ onSucsess }: AuthProps) {
 								error={signupForm.formState.errors.email}
 							/>
 							<Input
-								label="Password"
+								label="Passord"
 								id="signup-password"
 								type="password"
 								autoComplete="new-password"
 								placeholder="reke123"
 								{...signupForm.register("password")}
 								error={signupForm.formState.errors.password}
+							/>
+							<Input
+								label="Hva betyr REKA for deg?"
+								id="signup-meaning"
+								type="text"
+								autoComplete="new-password"
+								placeholder="..."
+								{...signupForm.register("meaning")}
+								error={signupForm.formState.errors.meaning}
 							/>
 						</div>
 					)
