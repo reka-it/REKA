@@ -1,0 +1,15 @@
+@use "../mixins.scss" as *;
+
+.error {
+    text-align: center;
+    margin: 2rem auto 1rem auto;
+}
+.subheading {
+    text-align: center;
+    font-size: 1.2rem;
+
+    @include for-mobile-only {
+        font-size: 1rem;
+        margin: 0 1rem;
+    }
+}
