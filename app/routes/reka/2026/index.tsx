@@ -8,6 +8,7 @@ import HypeButton from "~/components/HypeButton/HypeButton";
 import styles from '~/styles/reka2026.module.scss';
 import constants from "~/constants.module.scss";
 import Countdown from "~/components/Countdown/Countdown";
+import HypeCard from "~/components/HypeCard/HypeCard";
 
 export function meta({ }: Route.MetaArgs) {
 	return [{ title: "REKA" }];
@@ -29,15 +30,9 @@ export default function Home() {
 				<Card className={styles.insta} bgtype="pattern" patternColor="#22d">
 					<h2>Instagram</h2>
 					<p>Følg oss på instagram for å holde deg oppdatert!</p>
-					<Button onClick={() => { window.open("https://www.instagram.com/reka_offisiell/", '_blank')  }}>Følg oss!</Button>
+					<Button onClick={() => { window.open("https://www.instagram.com/reka_offisiell/", '_blank') }}>Følg oss!</Button>
 				</Card>
-				<Card className={styles.hype}>
-					<h2>Hype knapp!!!</h2>
-					<h5>Trykk på knappen for å vise hypen din!
-						(Trenger en redesign)
-					</h5>
-					<HypeButton />
-				</Card>
+				<HypeCard className={styles.hype} />
 				<Card className={styles.countdown} bgtype="pattern" patternColor="#fa5" patternOpacity={0.5}>
 					<Countdown targetDate={new Date(2026, 7, 21)} />
 				</Card>

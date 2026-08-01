@@ -11,6 +11,7 @@
 		"build-storybook": "storybook build"
 	},
 	"dependencies": {
+		"@fireworks-js/react": "^2.10.8",
 		"@hookform/resolvers": "^5.4.0",
 		"@react-router/node": "8.0.0",
 		"@react-router/serve": "8.0.0",

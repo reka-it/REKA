@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
 import styles from "./HypeButton.module.scss";
 import { updateUserHypeCount, upsertHype } from "~/firebase/firestore";
 import { useHypeCounter } from "~/firebase/useHypeCounter";
 import { useAuth } from "~/firebase/useAuth";
+import Button from "../Button/Button";
 
 type HypeButtonProps = {
 	className?: string;
 };
 
-export default function HypeButton({className}: HypeButtonProps) {
+export default function HypeButton({ className }: HypeButtonProps) {
 	const { account } = useAuth()
 	const { data, loading } = useHypeCounter();
 
@@ -18,10 +18,10 @@ export default function HypeButton({className}: HypeButtonProps) {
 	}
 
 	return (
-		<button className={`${styles.hype} ${className}`} onClick={onClick}>
+		<Button className={styles.hype} onClick={onClick} styling="centralized" disabled={false}>
 			<span className={styles.counter}>
-				{data && data.hype}
+				{account ? data ? data.hype : ":(" : "Login to hype"}
 			</span>
-		</button>
+		</Button>
 	);
 }

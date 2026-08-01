@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import Title from "./Toaster";
 
 export default {
-	title: "Components/Title",
+	title: "Components/Toaster",
 	component: Title,
 	parameters: {
 		layout: "centered",

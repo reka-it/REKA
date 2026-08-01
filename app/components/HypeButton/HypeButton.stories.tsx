@@ -12,5 +12,5 @@ export default {
 type Story = StoryObj<typeof HypeButton>;
 
 export const Default: Story = {
-	render: (args) => <HypeButton {...args} />,
+	render: (args) => <div style={{ width: "40vw" }}> <HypeButton {...args} /> </div>,
 };
