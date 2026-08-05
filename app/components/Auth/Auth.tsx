@@ -17,26 +17,32 @@ const loginSchema = z.object({
 	email: z
 		.string()
 		.min(1, "Email is required")
-		.email("Enter a valid email"),
+		.email("Enter a valid email")
+		.max(100, "your a lil long there matey"),
 	password: z
 		.string()
-		.min(6, "Must be at least 6 characters"),
+		.min(6, "Must be at least 6 characters")
+		.max(100, "whatcha tryinh?"),
 });
 
 const signupSchema = z.object({
 	name: z
 		.string()
-		.min(4, "Navn er påkrevd"),
+		.min(4, "Navn er påkrevd")
+		.max(100, "Bare fornavn takk :D"),
 	email: z
 		.string()
 		.min(1, "Email er påkrevd")
+		.max(100, "mailen din er vel ikke hele lorum ipsum?")
 		.email("Ikke en valid email"),
 	password: z
 		.string()
-		.min(6, "Må være minst 6 tegn langt"),
+		.min(6, "Må være minst 6 tegn langt")
+		.max(100, "Hvordan skal du huske det?!?"),
 	meaning: z
-	.string()
-	.max(63, "For lang melding"),
+		.string()
+		.min(3, "Det betyr vel mer for deg en 2 bokstaver? :(")
+		.max(63, "For lang melding"),
 });
 
 type LoginFormValues = z.infer<typeof loginSchema>;

@@ -1,7 +1,15 @@
 import { useValue } from "./useValue";
+import { useState, useEffect } from "react";
 
-export function useHypeCounter() {
+export function useHypeCounter(): { hype: number | null, loading: boolean } {
 	const { data, loading } = useValue("values", "hype");
+	const [hype, setHype] = useState(null)
 
-	return { data, loading };
+	useEffect(() => {
+		if (data) {
+			setHype(data.hype)
+		}
+	}, [data])
+
+	return { hype, loading };
 }

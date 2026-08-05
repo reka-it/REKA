@@ -1,3 +1,36 @@
 @use "constants" as *;
 
-.hype {}
+.hype {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: var(--font);
+}
+
+.milestones {
+  list-style: none;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px;
+  border: 2px white dashed;
+  border-radius: 5px;
+}
+
+.milestone {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name {
+  max-width: 65%;
+  text-wrap: wrap;
+}
+
+.storybook {
+  width: 300px;
+  height: 300px;
+}

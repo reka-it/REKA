@@ -1,4 +1,5 @@
 @use "constants" as *;
+@use "mixins" as *;
 
 .container {
   width: 50vw;
@@ -7,4 +8,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @include for-mobile-only {
+    width: 70vw;
+    height: 85vh;
+  }
 }

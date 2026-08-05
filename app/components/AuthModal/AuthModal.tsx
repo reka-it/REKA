@@ -8,7 +8,7 @@ export default function AuthModal({ ...modalProps }: AuthModalProps) {
 	return (
 		<Modal {...modalProps}>
 			<div className={styles.container}>
-				<Auth onSucsess={() => modalProps.setOpen(false)} className="style-2026" />
+				<Auth onSucsess={() => modalProps.setOpen(false)} />
 			</div>
 		</Modal>
 	);

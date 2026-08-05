@@ -1,4 +1,5 @@
 @use "constants" as *;
+@use "mixins" as *;
 
 .overlay {
   position: fixed;
@@ -15,6 +16,7 @@
 }
 
 .modal {
+  outline: none;
   background-color: var(--bg);
   color: var(--on-bg);
   border: 4px var(--on-bg) solid;
@@ -26,4 +28,6 @@
   box-shadow: 10px 10px 0px $shadow-default;
   cursor: auto;
   overflow: hidden;
+
+  @include for-mobile-only {}
 }

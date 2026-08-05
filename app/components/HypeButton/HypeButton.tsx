@@ -10,7 +10,7 @@ type HypeButtonProps = {
 
 export default function HypeButton({ className }: HypeButtonProps) {
 	const { account } = useAuth()
-	const { data, loading } = useHypeCounter();
+	const { hype, loading } = useHypeCounter();
 
 	const onClick = () => {
 		upsertHype()
@@ -18,9 +18,9 @@ export default function HypeButton({ className }: HypeButtonProps) {
 	}
 
 	return (
-		<Button className={styles.hype} onClick={onClick} styling="centralized" disabled={false}>
+		<Button className={styles.hype} onClick={onClick} styling="centralized">
 			<span className={styles.counter}>
-				{account ? data ? data.hype : ":(" : "Login to hype"}
+				{hype ? hype : ":("}
 			</span>
 		</Button>
 	);
