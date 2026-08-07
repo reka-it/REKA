@@ -1,0 +1,52 @@
+@use "constants" as *;
+
+.container {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 20px;
+  color: var(--on-bg);
+}
+
+.error {
+  font-size: 13px;
+  line-height: 1.4;
+  min-height: 1.4em;
+  color: $red-light-2026;
+  margin: 0;
+}
+
+.area {
+  background: var(--bg);
+  border: var(--on-bg) 4px solid;
+  color: var(--on-bg);
+  font-size: 1rem;
+  padding: 10px;
+  outline: none;
+  filter: $drop-shadow-default;
+  transition: border-color 120ms ease;
+
+  &:focus {
+    border-color: var(--shadow);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+  }
+
+  &::placeholder {
+    opacity: 0.9;
+  }
+}

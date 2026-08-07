@@ -6,6 +6,7 @@ import { useState } from "react";
 import { logIn, logOut, signUp } from "~/firebase/auth";
 import { useAuth } from "~/firebase/useAuth";
 import Input from "../Input/Input";
+import Textarea from "../Textarea/Textarea";
 
 type AuthProps = {
 	onSucsess: () => void;
@@ -181,12 +182,14 @@ export default function Auth({ onSucsess }: AuthProps) {
 								{...signupForm.register("password")}
 								error={signupForm.formState.errors.password}
 							/>
-							<Input
+							<Textarea
 								label="Hva betyr REKA for deg?"
 								id="signup-meaning"
-								type="text"
-								autoComplete="new-password"
 								placeholder="..."
+								minWidth="16rem"
+								maxWidth="30rem"
+								maxHeight="8rem"
+								minHeight="3rem"
 								{...signupForm.register("meaning")}
 								error={signupForm.formState.errors.meaning}
 							/>

@@ -6,6 +6,7 @@ import Button from "~/components/Button/Button";
 import { useAuth } from "~/firebase/useAuth";
 import { createFeedback } from "~/firebase/firestore";
 import styles from "~/styles/feedback.module.scss"
+import Textarea from "~/components/Textarea/Textarea";
 
 const feedbackSchema = z.object({
 	message: z
@@ -39,10 +40,12 @@ export default function Feedback() {
 			<h1 className={styles.heading}>
 				Feedback
 			</h1>
-			<textarea className={styles.area}
+			<Textarea
 				placeholder="Write here"
 				disabled={isSubmitting}
-				{...register("message")}
+				minHeight="10rem"
+				minWidth="25rem"
+				{...register}
 			/>
 			{errors.message && (
 				<p className={styles.error}>{errors.message.message}</p>
