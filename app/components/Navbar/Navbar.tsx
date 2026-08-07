@@ -29,7 +29,7 @@ export default function Navbar({ className }: NavbarProps) {
 			</div>
 			<div className={styles.buttons}>
 				<Button className={styles.button} type="button" onClick={() => navigate("/info")}>
-					Om REKA
+					Hva er REKA
 				</Button>
 				<Button className={styles.button} type="button" onClick={() => navigate("/earlier")}>
 					Tidligere

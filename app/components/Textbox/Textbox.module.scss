@@ -1,0 +1,12 @@
+@use "constants" as *;
+
+.textbox {
+  position: relative;
+  border: 2px solid $shadow-default;
+  background-color: var(--bg);
+  color: var(--on-bg);
+  font: var(--font);
+  padding: 1rem;
+
+  box-shadow: $box-shadow-default $box-shadow-default 0 $shadow-default;
+}

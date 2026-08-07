@@ -1,0 +1,11 @@
+@use "constants" as *;
+
+.reke {
+  color: $reke-default;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.storybook {
+  font-size: 2rem;
+}

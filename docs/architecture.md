@@ -18,5 +18,13 @@ app/
   routes/       Routing
   styles/       SCSS modules for main pages
 public/         Assets
+.storybook/     Storybook config
 docs/           You are here
 ```
+
+### React router
+Try to set yourself decently into react router framework mode before starting development, key points are:
+* The route config ```routes.ts```
+* Layout pages
+* Loaders
+* Navigation
