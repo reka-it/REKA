@@ -5,7 +5,7 @@
 // Content
 ////////////////////////////////////
 
-.title h1 {
+.title h1 { //The theme
   @include color-shadow(3, ($orange, $yellow, $green, $blue));
 
   @include for-mobile-only {
@@ -14,7 +14,7 @@
   }
 }
 
-.title h5 {
+.title h5 { //REKA xxxx
   transform: translateY(0.7rem);
   color: $reke-default;
 
@@ -23,14 +23,14 @@
   }
 }
 
-.title h5 span {
+.title h5 span { //The year in REKA xxxx
   color: $red-2026;
   display: inline-block;
   transform: scale(1.15) rotate(-2deg) translate(0.1rem, -0.1rem);
   -webkit-text-stroke: 0.8px darken($orange-2026, 15%);
 }
 
-.title h6 {
+.title h6 { //MG's årlige festival
   color: $on-bg-2026;
   opacity: 48%;
 
@@ -45,34 +45,40 @@
 }
 
 .map {
-  margin: 0 8.6rem 0 8.6rem;
-  height: 80vh;
-  max-height: 400px;
+  margin: 0 auto;
+  min-height: 36rem;
+  width: min(80vw, 1200px);
+
   display: flex;
   justify-content: center;
-  font-size: 4rem;
+  font-size: clamp(2.2rem, 1.5rem + 2vw, 4rem);
   color: rgba($white-default, 0.8);
 
   @include for-mobile-only {
     margin: 0 1.5rem 0 1.5rem;
     height: 30vh;
+    width: auto;
     font-size: 2rem;
+    min-height: 20rem;
   }
 }
 
 .cardWrapper {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(24, 1fr);
-  grid-template-rows: repeat(24, 1fr);
+  grid-template-columns: repeat(24, minmax(0, 1fr));
+  grid-template-rows: repeat(24, minmax(0, 1fr));
+  gap: 1rem;
   container-type: size;
 
-  margin: 3.5rem 1.5rem 3.5rem 1.5rem;
-
-  height: 200vh;
+  margin: 3.5rem auto 3.5rem auto;
+  width: min(90vw, 1200px);
+  height: clamp(52rem, 70vw, 76rem);
 
   @include for-mobile-only {
     grid-template-rows: repeat(48, 1fr);
+    width: auto;
+    margin: 3.5rem 1.5rem 3.5rem 1.5rem;
     font-size: clamp(0.6rem, 0.5rem + 0.7vw, 0.7rem);
     height: 58rem;
   }
@@ -90,10 +96,12 @@
 
 
 .info {
-  line-height: 1.8vh;
+  line-height: 1.5;
+  grid-column: 1 / 10;
+  grid-row: 1 / 9;
 
-  //TODO fiks layout for desktop
   @include for-mobile-only {
+    line-height: 1.7vh;
     grid-column: 1 / 11;
     grid-row: 1 / 11;
   }
@@ -102,14 +110,19 @@
 .insta {
   box-shadow: -$box-shadow-default $box-shadow-default 0 $shadow-default;
   align-items: center;
+  grid-column: 17 / 25;
+  grid-row: 2 / 8;
+  background-color: $blue;
 
-  //TODO fiks layout for desktop
+  &:hover {
+    translate: 1px 1px;
+    box-shadow: calc(($box-shadow-default - 1px) * -1) calc($box-shadow-default - 1px) 0 $shadow-default;
+  }
+
   @include for-mobile-only {
     grid-column: 16 / 25;
     grid-row: 8 / 16;
   }
-
-  background-color: $blue;
 }
 
 .insta button {
@@ -119,8 +132,9 @@
 }
 
 .hype {
+  grid-column: 4 / 15;
+  grid-row: 10 / 17;
 
-  //TODO fiks layout for desktop
   @include for-mobile-only {
     grid-column: 2 / 14;
     grid-row: 16 / 30;
@@ -139,26 +153,33 @@
 .countdown {
   background-color: $orange-2026;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column: 17 / 25;
+  grid-row: 10 / 14;
+  font-size: clamp(4rem, 0.8rem + 0.8vw, 1.5rem);
 
-  //TODO fiks layout for desktop
   @include for-mobile-only {
     grid-column: 16 / 25;
     grid-row: 28 / 32;
-    line-height: 2.3rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 
 .program {
   background-color: $blue-2026;
   text-align: center;
-  line-height: 3vh;
+  line-height: 1.5;
+  grid-column: 5 / 21;
+  grid-row: 18 / 25;
+  z-index: 2;
 
-  //TODO fiks layout for desktop
   @include for-mobile-only {
     grid-column: 2 / 24;
     grid-row: 36 / 49;
-    z-index: 2;
+    line-height: 3vh;
   }
 }
 
