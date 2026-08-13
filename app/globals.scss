@@ -8,6 +8,7 @@
   --tertiary: #{$tertiary-default};
   --accent: #{$accent-default};
   --shadow: #{$shadow-default};
+  --error: #{$error-default};
   --font: #{$font-caprisimo}; //Ka burde default fonten vær? Føle Caprisimo e en banger, men den tar kanskje vekk fra unikheten te 2026 siden?
 }
 
@@ -21,4 +22,5 @@
   --shadow: #{$shadow-default};
   --font: #{$font-caprisimo};
   --text-color: #{$red-2026};
+  --error: #{$error-2026};
 }

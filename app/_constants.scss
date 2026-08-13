@@ -35,6 +35,7 @@ $black-default: black;
 $reke-default: #E59887;
 $reke-default-dark: color.adjust($reke-default, $lightness: -5%);
 $reke-default-light: color.adjust($reke-default, $lightness: 5%);
+$error-default: color.adjust($primary-default, $lightness: -10%);
 
 $box-shadow-default: 9px;
 
@@ -54,3 +55,4 @@ $red-2026: #FF3031;
 $yellow-2026: #FFBF2F;
 $pink-2026: #F352A9;
 $orange-2026: #FE904E;
+$error-2026: $red-2026;

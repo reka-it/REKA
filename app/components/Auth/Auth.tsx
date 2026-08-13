@@ -123,6 +123,7 @@ export default function Auth({ onSucsess }: AuthProps) {
 					{signupForm.formState.errors.root.message}
 				</p>
 			}
+
 			<form className={styles.form}>
 				{!!account ? (
 					<div className={styles.field}>
@@ -133,67 +134,78 @@ export default function Auth({ onSucsess }: AuthProps) {
 					</div>
 				) : (
 					mode === "login" ? (
-						<div className={styles.inputs} key="login">
-							<Input
-								label="Email"
-								id="email"
-								type="email"
-								autoComplete="email"
-								placeholder="reke@rekenett.no"
-								{...loginForm.register("email")}
-								error={loginForm.formState.errors.email}
-							/>
-							<Input
-								label="Password"
-								id="password"
-								type="password"
-								autoComplete="current-password"
-								placeholder="reke123"
-								{...loginForm.register("password")}
-								error={loginForm.formState.errors.password}
-							/>
-						</div>
+						<>
+							<div className={styles.inputs} key="login">
+								<Input
+									label="Email"
+									id="email"
+									type="email"
+									autoComplete="email"
+									placeholder="reke@rekenett.no"
+									{...loginForm.register("email")}
+									error={loginForm.formState.errors.email}
+								/>
+								<Input
+									label="Password"
+									id="password"
+									type="password"
+									autoComplete="current-password"
+									placeholder="reke123"
+									{...loginForm.register("password")}
+									error={loginForm.formState.errors.password}
+								/>
+
+							</div>
+							<p role="alert" className={styles.error}>
+								{loginForm.formState.errors.root && loginForm.formState.errors.root.message}
+							</p>
+						</>
 					) : (
-						<div className={styles.inputs} key="signup">
-							<Input
-								label="Navn"
-								id="name"
-								type="text"
-								autoComplete="name"
-								placeholder="Reke Rekesen"
-								{...signupForm.register("name")}
-								error={signupForm.formState.errors.name}
-							/>
-							<Input
-								label="Email"
-								id="signup-email"
-								type="email"
-								autoComplete="email"
-								placeholder="reke@rekenett.no"
-								{...signupForm.register("email")}
-								error={signupForm.formState.errors.email}
-							/>
-							<Input
-								label="Passord"
-								id="signup-password"
-								type="password"
-								autoComplete="new-password"
-								placeholder="reke123"
-								{...signupForm.register("password")}
-								error={signupForm.formState.errors.password}
-							/>
-							<Textarea
-								label="Hva betyr REKA for deg?"
-								id="signup-meaning"
-								placeholder="..."
-								minWidth="16rem"
-								maxWidth="30rem"
-								maxHeight="8rem"
-								minHeight="3rem"
-								{...signupForm.register("meaning")}
-								error={signupForm.formState.errors.meaning}
-							/>
-						</div>
+						<>
+							<div className={styles.inputs} key="signup">
+								<Input
+									label="Navn"
+									id="name"
+									type="text"
+									autoComplete="name"
+									placeholder="Reke Rekesen"
+									{...signupForm.register("name")}
+									error={signupForm.formState.errors.name}
+								/>
+								<Input
+									label="Email"
+									id="signup-email"
+									type="email"
+									autoComplete="email"
+									placeholder="reke@rekenett.no"
+									{...signupForm.register("email")}
+									error={signupForm.formState.errors.email}
+								/>
+								<Input
+									label="Passord"
+									id="signup-password"
+									type="password"
+									autoComplete="new-password"
+									placeholder="reke123"
+									{...signupForm.register("password")}
+									error={signupForm.formState.errors.password}
+								/>
+								<Textarea
+									label="Hva betyr REKA for deg?"
+									id="signup-meaning"
+									placeholder="..."
+									minWidth="16rem"
+									maxWidth="30rem"
+									maxHeight="8rem"
+									minHeight="3rem"
+									{...signupForm.register("meaning")}
+									error={signupForm.formState.errors.meaning}
+								/>
+							</div>
+							<p role="alert" className={styles.error}>
+								{signupForm.formState.errors.root && signupForm.formState.errors.root.message}
+							</p>
+						</>
 					)
 				)}
 			</form>
@@ -227,6 +239,6 @@ export default function Auth({ onSucsess }: AuthProps) {
 					</button>
 				)}
 			</div>
-		</div>
+		</div >
 	);
 }

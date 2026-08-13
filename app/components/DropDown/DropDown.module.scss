@@ -1,9 +1,9 @@
 @use "constants" as *;
 
 .dropdown {
-  position: absolute;
+  position: fixed;
   z-index: 1000;
-  background-color: var(--bg);
+  background-color: var(--bg, $bg-default);
   border: 2px $shadow-default solid;
   overflow: hidden;
 
@@ -21,7 +21,7 @@
 }
 
 .item {
-  color: var(--on-bg);
+  color: var(--on-bg, $on-bg-default);
   font-size: 1.2rem;
   text-wrap: nowrap;
   cursor: pointer;
@@ -35,7 +35,7 @@
 }
 
 .selected {
-  color: var(--primary);
+  color: var(--primary, $primary-default);
 }
 
 .closed {

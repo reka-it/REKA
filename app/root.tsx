@@ -1,4 +1,3 @@
-// Jeg tror dette er en no touch fil men idk ser komplekst ut
 import {
 	isRouteErrorResponse,
 	Links,
@@ -13,6 +12,7 @@ import type { Route } from "./+types/root";
 import "./app.scss";
 import "./globals.scss";
 import styles from "./styles/root.module.scss";
+import { QueryClient, QueryClientProvider, useQueryClient } from "@tanstack/react-query";
 
 export const links: LinksFunction = () => [
 	{ rel: "icon", href: "/rekafestival.png" },
@@ -46,8 +46,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
 	);
 }
 
+const queryClient = new QueryClient();
+
 export default function App() {
-	return <Outlet />;
+	return (
+		<QueryClientProvider client={queryClient}>
+			<Outlet />
+		</QueryClientProvider>
+	);
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

@@ -12,13 +12,11 @@ type PageProps = {
 
 export default function Page({ children, navbar, footer, mouse, className }: PageProps) {
 	return (
-		<>
+		<main className={`${styles.page} ${className}`}>
 			{mouse}
 			{navbar}
-			<main className={`${styles.page} ${className}`}>
-				{children}
-			</main>
+			{children}
 			{footer}
-		</>
+		</main>
 	)
 }

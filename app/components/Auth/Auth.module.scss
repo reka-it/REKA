@@ -9,6 +9,7 @@
   flex-direction: column;
   padding: 20px;
   overflow: auto;
+  gap: 1rem;
 }
 
 .tabs {
@@ -116,4 +117,8 @@
     border-color: var(--secondary);
     color: var(--secondary);
   }
+}
+
+.error {
+  color: var(--error);
 }

@@ -1,32 +1,21 @@
-import { getDocs, addDoc, collection, setDoc, doc, updateDoc, getDoc, increment, query, orderBy, where, limit } from "firebase/firestore";
+import { getDocs, addDoc, collection, setDoc, doc, updateDoc, getDoc, increment, query, orderBy, where, limit, arrayRemove, deleteDoc } from "firebase/firestore";
 import type { DocumentReference, DocumentData } from "firebase/firestore";
 import { db } from "./firebase";
 import type { Account, DbUser, Role } from "./user"
+import type { Event, Reka, RekaDay } from "./reka";
+import { arrayUnion } from "firebase/firestore/lite";
 
 export type Sorting = "asc" | "desc";
-
-/// updates a ref by data returned by update, if ref does not exist model is used to create a new document
-export async function upsert(
-	ref: DocumentReference,
-	model: DocumentData,
-	update: (data: DocumentData) => DocumentData
-) {
-	const snapshot = await getDoc(ref);
-	if (snapshot.exists()) {
-		await updateDoc(ref, update(snapshot.data()));
-	} else {
-		await setDoc(ref, model);
-	}
-}
 
 export async function update(
 	ref: DocumentReference,
 	update: (data: DocumentData) => DocumentData
 ) {
 	const snapshot = await getDoc(ref);
-	if (snapshot.exists()) {
-		await updateDoc(ref, update(snapshot.data()));
+	if (!snapshot.exists()) {
+		throw new Error("Dokumentet finnes ikke");
 	}
+	await updateDoc(ref, update(snapshot.data()));
 }
 
 export async function upsertHype() {
@@ -37,6 +26,89 @@ export async function upsertHype() {
 	} else {
 		await setDoc(ref, { hype: 1 });
 	}
+}
+
+export async function createReka(year: string) {
+	const ref = doc(db, 'rekaer', year);
+	const snapshot = await getDoc(ref);
+	if (snapshot.exists()) {
+		throw new Error("Denne rekaen eksisterer allerede");
+	}
+	await setDoc(ref, {
+		year: year,
+		createdAt: new Date(),
+		program: {
+			friday: [],
+			saturday: [],
+			sunday: []
+		},
+	} as Reka);
+	return { year };
+}
+
+export async function getReka(year: string): Promise<Reka> {
+	const ref = doc(db, "rekaer", year);
+	const snapshot = await getDoc(ref);
+	if (!snapshot.exists()) {
+		throw new Error("Reka finnes ikke");
+	}
+	return snapshot.data() as Reka;
+}
+
+export async function getRekaer(): Promise<Reka[]> {
+	const ref = collection(db, "rekaer");
+	const snapshot = await getDocs(ref);
+	return snapshot.docs.map((doc) => doc.data() as Reka);
+}
+
+export async function deleteReka(year: string): Promise<void> {
+	const ref = doc(db, "rekaer", year);
+	const snapshot = await getDoc(ref);
+	if (!snapshot.exists()) {
+		throw new Error("Denne rekaen finnes ikke");
+	}
+	await deleteDoc(ref);
+}
+
+export async function addEventToProgram(
+	year: string,
+	day: RekaDay,
+	event: Event
+): Promise<void> {
+	const ref = doc(db, "rekaer", year);
+	await updateDoc(ref, { [`program.${day}`]: arrayUnion(event) });
+}
+
+export async function deleteEventFromProgram(
+	year: string,
+	day: RekaDay,
+	event: Event
+): Promise<void> {
+	const ref = doc(db, "rekaer", year);
+	await updateDoc(ref, { [`program.${day}`]: arrayRemove(event) });
+}
+
+export async function getProgram(year: string): Promise<Record<RekaDay, Event[]>> {
+	const ref = doc(db, "rekaer", year);
+	const snapshot = await getDoc(ref);
+	if (!snapshot.exists()) {
+		throw new Error("Reka finnes ikke");
+	}
+	return (snapshot.data() as Reka).program;
+}
+
+export async function getDay(year: string, day: RekaDay): Promise<Event[]> {
+	const program = await getProgram(year);
+	return program[day] ?? [];
+}
+
+export async function getEvent(
+	year: string,
+	day: RekaDay,
+	eventId: string
+): Promise<Event | null> {
+	const events = await getDay(year, day);
+	return events.find((e) => e.id === eventId) ?? null;
 }
 
 export async function updateUserHypeCount(account: Account | null) {
@@ -171,4 +243,5 @@ export async function getDbUsers(
 		...(doc.data() as DbUser),
 	}));
 }
+
 

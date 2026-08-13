@@ -1,4 +1,5 @@
 import { useLayoutEffect, useEffect, useRef, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 import styles from "./DropDown.module.scss";
 
 type Item = {
@@ -26,7 +27,13 @@ export default function DropDown({
 	anchorRef,
 }: DropDownProps) {
 	const [position, setPosition] = useState({ top: 0, left: 0 });
+	const [portalTarget, setPortalTarget] = useState<Element | null>(null);
 	const dropdownRef = useRef<HTMLUListElement>(null);
+
+	useLayoutEffect(() => {
+		// temp solution
+		setPortalTarget(anchorRef.current?.closest(".page") ?? document.body);
+	}, [anchorRef]);
 
 	useLayoutEffect(() => {
 		if (!open || !anchorRef.current || !dropdownRef.current) return;
@@ -63,7 +70,7 @@ export default function DropDown({
 		updatePosition();
 		window.addEventListener("resize", updatePosition);
 		return () => window.removeEventListener("resize", updatePosition);
-	}, [open, anchorRef, items]);
+	}, [open, anchorRef, items, portalTarget]);
 
 	useEffect(() => {
 		if (!open) return;
@@ -81,7 +88,9 @@ export default function DropDown({
 		return () => document.removeEventListener("mousedown", handleClickOutside);
 	}, [open, anchorRef, setOpen]);
 
-	return (
+	if (!portalTarget) return null;
+
+	return createPortal(
 		<ul className={`${styles.dropdown} ${open ? styles.open : styles.closed}`}
 			ref={dropdownRef}
 			style={{ top: position.top, left: position.left }}
@@ -99,6 +108,7 @@ export default function DropDown({
 					{display}
 				</li>
 			))}
-		</ul>
+		</ul>,
+		portalTarget
 	);
 }
