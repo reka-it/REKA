@@ -16,8 +16,11 @@ export default [
 			index("routes/admin/index.tsx"),
 			route("users", "routes/admin/users.tsx"),
 			route("styling", "routes/admin/styling.tsx"),
-			route("rekaer", "routes/admin/rekaer.tsx"),
-			route("createReka", "routes/admin/createReka.tsx"),
+			...prefix("rekaer", [
+				index("routes/admin/rekaer.tsx"),
+				route(":year", "routes/admin/reka.tsx"),
+				route("create", "routes/admin/createReka.tsx"),
+			]),
 		]),
 	]),
 	layout("routes/default/layout.tsx", [

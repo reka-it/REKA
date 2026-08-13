@@ -10,6 +10,7 @@ import styles from "~/styles/admin/rekaer.module.scss";
 
 function RekaRow({ reka }: { reka: Reka }) {
 	const queryClient = useQueryClient();
+	const navigate = useNavigate();
 	const { mutate: deleteRekaMutate, isPending } = useMutation({
 		mutationKey: rekaKeys.all,
 		mutationFn: deleteReka,
@@ -23,7 +24,7 @@ function RekaRow({ reka }: { reka: Reka }) {
 
 	return (
 		<tr>
-			<td className={isPending ? styles.deleting : ""}>
+			<td className={isPending ? styles.deleting : ""} onClick={() => navigate(`/admin/rekaer/${reka.year}`)}>
 				<span>
 					{reka.year}
 				</span>
@@ -51,7 +52,7 @@ export default function Rekaer() {
 	return (
 		<div className={styles.container}>
 			<div className={styles.topBar}>
-				<Button onClick={() => navigate("/admin/createReka")}>
+				<Button onClick={() => navigate("/admin/rekaer/create")}>
 					CreateReka
 				</Button>
 			</div>

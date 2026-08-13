@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
-import { Outlet, useLocation, useNavigate } from "react-router";
+import { Outlet, useLocation, useNavigate, useParams } from "react-router";
 import Button from "~/components/Button/Button";
 import styles from "~/styles/admin/layout.module.scss";
 import Page from "~/components/Page/Page";
@@ -7,7 +7,14 @@ import Page from "~/components/Page/Page";
 export default function AdminPage() {
 	const location = useLocation();
 	const navigate = useNavigate();
-	const isActive = (path: string) => location.pathname === path;
+	const { year } = useParams();
+
+	function isActive(paths: string[]) {
+		return paths.some(
+			(path) =>
+				location.pathname === path || location.pathname.startsWith(path + "/")
+		);
+	}
 
 	return (
 		<Page className="style-default">
@@ -21,22 +28,22 @@ export default function AdminPage() {
 					</h1>
 					<div className={styles.pages}>
 						<Button
-							className={`${styles.pageButton} ${isActive("/admin/users") ? styles.selected : ""}`}
+							className={`${styles.pageButton} ${isActive(["/admin/users"]) ? styles.selected : ""}`}
 							onClick={() => navigate("/admin/users")}
 						>
 							Brukere
 						</Button>
 						<Button
-							className={`${styles.pageButton} ${isActive("/admin/styling") ? styles.selected : ""}`}
+							className={`${styles.pageButton} ${isActive(["/admin/styling"]) ? styles.selected : ""}`}
 							onClick={() => navigate("/admin/styling")}
 						>
 							Styling
 						</Button>
 						<Button
-							className={`${styles.pageButton} ${isActive("/admin/rekaer") ? styles.selected : ""}`}
+							className={`${styles.pageButton} ${isActive(["/admin/rekaer"]) ? styles.selected : ""}`}
 							onClick={() => navigate("/admin/rekaer")}
 						>
-							Rekaer
+							Rekaer {isActive(["/admin/rekaer/create"]) ? "-> create" : !!year ? `-> ${year}` : ""}
 						</Button>
 					</div>
 					<h1 className={styles.reka}>
