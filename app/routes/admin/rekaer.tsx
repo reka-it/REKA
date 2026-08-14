@@ -44,10 +44,12 @@ export default function Rekaer() {
 	const { user, role } = useAuth("admin");
 	const navigate = useNavigate();
 
-	const { data: rekaer, isLoading, isError } = useQuery({
+	const { data, isLoading, isError } = useQuery({
 		queryKey: rekaKeys.all,
 		queryFn: getRekaer,
 	})
+
+	const rekaer = data?.sort((a, b) => Number(a.year) - Number(b.year));
 
 	return (
 		<div className={styles.container}>

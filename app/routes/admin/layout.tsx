@@ -4,7 +4,13 @@ import Button from "~/components/Button/Button";
 import styles from "~/styles/admin/layout.module.scss";
 import Page from "~/components/Page/Page";
 
+type Crumb = {
+	crumb: string,
+	nav: () => void,
+}
+
 export default function AdminPage() {
+	const [crumbs, setCrumbs] = useState<Crumb[]>([]);
 	const location = useLocation();
 	const navigate = useNavigate();
 	const { year } = useParams();
@@ -15,6 +21,15 @@ export default function AdminPage() {
 				location.pathname === path || location.pathname.startsWith(path + "/")
 		);
 	}
+
+	useEffect(() => {
+		const c = location.pathname.split("/").filter(e => e.length > 0);
+		const a = [];
+		for (let i = 0; i < c.length; i++) {
+			a.push({ crumb: c[i], nav: () => navigate(`/${c.slice(0, i + 1).join("/")}`) })
+		}
+		setCrumbs(a);
+	}, [location.pathname])
 
 	return (
 		<Page className="style-default">
@@ -50,10 +65,24 @@ export default function AdminPage() {
 						REKA
 					</h1>
 				</div>
-				<div
-					className={styles.content}
-				>
-					<Outlet />
+				<div className={styles.contentWrapper}>
+					<nav className={styles.crumbs}>
+						<ol>
+							{crumbs && crumbs.map(({ crumb, nav }) => (
+								<>
+									/
+									<li onClick={nav}>
+										{crumb}
+									</li>
+								</>
+							))}
+						</ol>
+					</nav>
+					<div
+						className={styles.content}
+					>
+						<Outlet />
+					</div>
 				</div>
 			</div>
 		</Page>

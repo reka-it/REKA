@@ -19,6 +19,7 @@ export default [
 			...prefix("rekaer", [
 				index("routes/admin/rekaer.tsx"),
 				route(":year", "routes/admin/reka.tsx"),
+				route(":year/program", "routes/admin/program.tsx"),
 				route("create", "routes/admin/createReka.tsx"),
 			]),
 		]),

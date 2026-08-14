@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router";
+import Card from "~/components/Card/Card";
 import { useAuth } from "~/firebase/useAuth";
-import styles from "~/styles/admin/createReka.module.scss";
+import styles from "~/styles/admin/reka.module.scss";
 
 export default function Reka() {
 	useAuth("admin");
@@ -10,7 +11,40 @@ export default function Reka() {
 	return (
 		<div className={styles.container}>
 			<h1>Reka: {year}</h1>
-			<h1 onClick={() => navigate(-1)}>Back</h1>
+			<div className={styles.cards}>
+				<Card className={styles.card} onClick={() => navigate("program")}>
+					<h1 className={styles.header}>
+						Program
+					</h1>
+					<span className={styles.description}>
+						Her kan du redigere reka {year} sitt program
+					</span>
+				</Card >
+				<Card className={styles.card} onClick={() => navigate("program")}>
+					<h1 className={styles.header}>
+						Program
+					</h1>
+					<span className={styles.description}>
+						Her kan du redigere reka {year} sitt program
+					</span>
+				</Card >
+				<Card className={styles.card} onClick={() => navigate("program")}>
+					<h1 className={styles.header}>
+						Program
+					</h1>
+					<span className={styles.description}>
+						Her kan du redigere reka {year} sitt program
+					</span>
+				</Card >
+				<Card className={styles.card} onClick={() => navigate("program")}>
+					<h1 className={styles.header}>
+						Program
+					</h1>
+					<span className={styles.description}>
+						Her kan du redigere reka {year} sitt program
+					</span>
+				</Card >
+			</div>
 		</div>
 	);
 }

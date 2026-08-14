@@ -11,6 +11,7 @@ type CardProps = {
 	alt?: string;
 	patternColor?: string;
 	patternOpacity?: number;
+	onClick?: () => void;
 };
 
 export default function Card({
@@ -22,17 +23,18 @@ export default function Card({
 	alt,
 	patternColor = "#fff",
 	patternOpacity = 0.3,
+	onClick = () => { },
 }: CardProps) {
 	const offset = 10;
 	const { ox, oy } = useMemo(() => ({ ox: Math.random() * offset * 2 - offset, oy: Math.random() * offset * 2 - offset }), [bgtype]);
 
 	return (
-		<div className={`${styles.card} ${className}`} style={style}>
+		<div className={`${styles.card} ${className}`} style={style} onClick={onClick}>
 			{bgtype === "pattern" &&
 				<Pattern smallest={7} largest={7} spacing={20} opacity={patternOpacity} color={patternColor} offsetY={oy} offsetX={ox} />
 			}
 			{bgtype === "image" &&
-				<img src={src} className={styles.image} alt={alt}/>
+				<img src={src} className={styles.image} alt={alt} />
 			}
 			{children}
 		</div>

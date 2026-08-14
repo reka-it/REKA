@@ -5,8 +5,8 @@
   width: 100%;
   height: 100vh;
   display: flex;
-  padding: .8rem;
-  gap: .8rem;
+  padding: .9rem;
+  gap: .9rem;
   color: $on-bg-default;
   background: $bg-default;
 }
@@ -76,11 +76,63 @@
   color: $bg-default;
 }
 
+.crumbs {
+  width: 100%;
+  height: 1.2rem;
+
+  ol {
+    display: flex;
+    list-style: none;
+    gap: 3px;
+
+    li {
+      cursor: pointer;
+      transition: color 150ms ease, scale 150ms ease;
+      animation: slideIn 0.3s ease-out;
+
+      &:hover {
+        color: var(--primary);
+        scale: 1.02;
+      }
+
+      &:last-child {
+        color: var(--secondary);
+        cursor: auto;
+
+        &:hover {
+          scale: 1.0;
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .content {
+  width: 100%;
+  height: calc(100% - 1.2rem);
+  transition: height 200ms ease-in-out;
+}
+
+.contentWrapper {
+  overflow: hidden;
   @extend .section;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 66%;
   height: 100%;
+  gap: 1rem;
   padding: 1rem;
-  overflow: hidden;
-  transition: height 200ms ease-in-out;
 }
