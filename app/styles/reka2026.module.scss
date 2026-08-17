@@ -189,6 +189,8 @@
 
 .trioFlowerRed {
   position: absolute;
+  top: 10%;
+  left: 50%;
 
   @include for-mobile-only {
     z-index: 1;
@@ -200,6 +202,8 @@
 
 .trioFlowerBlue {
   position: absolute;
+  top: 8%;
+  left: 45%;
 
   @include for-mobile-only {
     z-index: 1;
@@ -211,6 +215,8 @@
 
 .trioFlowerOrange {
   position: absolute;
+  top: 15%;
+  left: 47%;
 
   @include for-mobile-only {
     z-index: 1;
@@ -223,6 +229,8 @@
 .LowerFlowerOrange {
   position: absolute;
   overflow: visible;
+  top: 60%;
+  left: 70%;
 
   @include for-mobile-only {
     grid-column: 2;
@@ -243,6 +251,8 @@
 
 .programFlower {
   position: absolute;
+  left: 12.5%;
+  top: 67.8%;
 
   @include for-mobile-only {
     z-index: 1;

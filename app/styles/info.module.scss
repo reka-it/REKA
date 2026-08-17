@@ -1,6 +1,10 @@
 @use "../constants.scss" as *;
 @use "../mixins.scss" as *;
 
+.InfoWrapper { //Temp fix ettersom pagen muligens ikke har nok vertical content sånn at footeren begynne å fly, og eg e for lat rn te å fikse det #TekniskGjeld
+  min-height: 80vh;
+}
+
 .Title {
   text-align: center;
   margin: 1.5rem;
@@ -31,7 +35,7 @@
 .MeaningWrapper div {
   border-radius: .5rem;
   font-size: 0.8rem;
-  min-height: 5rem;
+  max-height: 5rem;
 
   overflow-wrap: break-word;
   word-break: break-word;

@@ -6,6 +6,17 @@
     margin: 1.5rem;
 }
 
+.subtitle {
+    text-align: center;
+    margin: 1.5rem 1.5rem 0 1.5rem;
+    font-size: 1.3rem;
+    transform: translateY(-1.5rem);
+
+    @include for-mobile-only {
+        font-size: 1rem;
+    }
+}
+
 .cardWrapper {
     display: flex;
     flex-flow: wrap row;
@@ -19,7 +30,7 @@ img {
 }
 
 .cardWrapper div {
-    flex-basis: 25%;
+    flex-basis: 26%;
     height: 20rem;
     margin: 0 auto 3rem auto;
     -webkit-text-stroke: 1px $black-default;
@@ -42,6 +53,11 @@ img {
 .REKA25 img{
     object-fit: cover;
     object-position: 30%;
+}
+
+.REKA24 img {
+    object-fit: cover;
+    object-position: 40%;
 }
 
 .REKA22 img {
