@@ -28,12 +28,6 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      # SPA fallback so GitHub Pages serves index.html for client-side routes
-      - run: cp build/client/index.html build/client/404.html
-
-      # Don't run Jekyll processing over the build output
-      - run: touch build/client/.nojekyll
-
       - run: cp CNAME build/client/CNAME
 
       - uses: actions/configure-pages@v5
