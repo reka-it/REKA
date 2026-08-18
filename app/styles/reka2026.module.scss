@@ -107,12 +107,25 @@
   }
 }
 
+.info h2 {
+  text-align: center;
+}
+
+.info p {
+  font-size: 2rem;
+  @include for-mobile-only {
+    font-size: clamp(0.6rem, 0.5rem + 0.7vw, 0.7rem);
+  }
+}
+
 .insta {
   box-shadow: -$box-shadow-default $box-shadow-default 0 $shadow-default;
   align-items: center;
   grid-column: 17 / 25;
   grid-row: 2 / 8;
   background-color: $blue;
+  text-align: center;
+  font-size: 1.5rem;
 
   &:hover {
     translate: 1px 1px;
@@ -122,12 +135,19 @@
   @include for-mobile-only {
     grid-column: 16 / 25;
     grid-row: 8 / 16;
+    text-align: left;
+    font-size: clamp(0.6rem, 0.5rem + 0.7vw, 0.7rem);
   }
 }
 
 .insta button {
+  width: 100%;
+  height: 50%;
+  margin: 2rem 0;
   @include for-mobile-only {
-    margin-top: 0.5rem;
+    margin-top: 0.2rem;
+    width: auto;
+    height: auto;
   }
 }
 
@@ -233,9 +253,8 @@
   left: 70%;
 
   @include for-mobile-only {
-    grid-column: 2;
-    grid-row: 12;
-    z-index: 1;
+    top: 22%;
+    left: 15%;
   }
 }
 

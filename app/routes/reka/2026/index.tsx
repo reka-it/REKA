@@ -24,8 +24,10 @@ export default function Home() {
 			<Card className={styles.map} bgtype="image" src="/map.png"> REKA KART </Card>
 			<div className={`${styles.cardWrapper} ${hasAccess("admin") ? styles.visibleLines : ""}`}>
 				<Card className={styles.info} bgtype="normal">
-					<h2>MG's festival</h2>
-					<p>Hvert år arrangerer vi i MG Norges eldste og viktigste kulturfestival!! Innhold, tema og sted varier fra år til år. Årets tema er Summer of '69✌️</p>
+					<h2>Viktig Info</h2>
+					<p>Avgang fra Gløshaugen 16:00 Fredag 21. aug</p>
+					<br></br>
+					<p>Se Insta for mer info og pakkeliste!</p>
 				</Card>
 				<Card className={styles.insta} bgtype="pattern" patternColor="#22d">
 					<h2>Instagram</h2>
