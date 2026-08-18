@@ -2,6 +2,7 @@
 	"name": "reka",
 	"private": true,
 	"type": "module",
+	"homepage": "https://github.com/reka-it/REKA",
 	"scripts": {
 		"build": "react-router build",
 		"dev": "concurrently -n app,storybook -c blue,magenta \"react-router dev\" \"npm run storybook\"",

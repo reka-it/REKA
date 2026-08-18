@@ -12,7 +12,7 @@ import type { Route } from "./+types/root";
 import "./app.scss";
 import "./globals.scss";
 import styles from "./styles/root.module.scss";
-import { QueryClient, QueryClientProvider, useQueryClient } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 export const links: LinksFunction = () => [
 	{ rel: "icon", href: "/rekafestival.png" },
