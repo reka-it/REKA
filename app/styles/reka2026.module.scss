@@ -99,7 +99,7 @@
 }
 
 
-.info {
+div.info {
   background: $green-2026;
   color: $white-default;
   line-height: 1.5;
@@ -125,7 +125,7 @@
   }
 }
 
-.insta {
+div.insta {
   background: $blue-2026;
   color: $white-default;
 
@@ -185,7 +185,7 @@
   row-rule-width: 3px; //Bare for debug
 }
 
-.countdown {
+div.countdown {
   background: $orange-2026;
   color: $white-default;
 
@@ -205,7 +205,7 @@
   }
 }
 
-.program {
+div.program {
   background: $blue-2026;
   color: $white-default;
 
