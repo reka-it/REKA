@@ -5,7 +5,7 @@ export function meta({ }: Route.MetaArgs) {
 	return [{ title: "REKA" }];
 }
 
-export function clientLoader() {
+export function loader() {
 	throw redirect(`/reka/${new Date().getFullYear()}`);
 }
 
