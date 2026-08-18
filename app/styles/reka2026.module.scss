@@ -119,11 +119,13 @@
 }
 
 .insta {
+  --card-bg: #{$blue};
+  --card-color: #{$white-default};
+
   box-shadow: -$box-shadow-default $box-shadow-default 0 $shadow-default;
   align-items: center;
   grid-column: 17 / 25;
   grid-row: 2 / 8;
-  background-color: $blue;
   text-align: center;
   font-size: 1.5rem;
 
@@ -171,7 +173,9 @@
 }
 
 .countdown {
-  background-color: $orange-2026;
+  --card-bg: #{$orange-2026};
+  --card-color: #{$white-default};
+
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -189,7 +193,9 @@
 }
 
 .program {
-  background-color: $blue-2026;
+  --card-bg: #{$blue-2026};
+  --card-color: #{$white-default};
+
   text-align: center;
   line-height: 1.5;
   grid-column: 5 / 21;

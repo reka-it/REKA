@@ -1,10 +1,13 @@
 @use "constants" as *;
 
 .card {
+  --card-bg: #{$pink-2026};
+  --card-color: #{$white-default};
+
   position: relative;
   border: 2px solid $shadow-default;
-  background-color: $pink-2026;
-  color: $white-default;
+  background-color: var(--card-bg, $pink-2026);
+  color: var(--card-color, $white-default);
   padding: 1rem;
 
   box-shadow: $box-shadow-default $box-shadow-default 0 $shadow-default;
