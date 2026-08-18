@@ -15,6 +15,7 @@ export default defineConfig({
 	server: {
 		port: 3000
 	},
+	base: "/reka-it/reka/",
 	resolve: {
 		tsconfigPaths: true
 	},
