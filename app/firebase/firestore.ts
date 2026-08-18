@@ -1,9 +1,9 @@
 import { getDocs, addDoc, collection, setDoc, doc, updateDoc, getDoc, increment, query, orderBy, where, limit, arrayRemove, deleteDoc } from "firebase/firestore";
 import type { DocumentReference, DocumentData } from "firebase/firestore";
+import { arrayUnion, Timestamp } from "firebase/firestore";
 import { db } from "./firebase";
 import type { Account, DbUser, Role } from "./user"
 import type { Event, Reka, RekaDay } from "./reka";
-import { arrayUnion } from "firebase/firestore/lite";
 
 export type Sorting = "asc" | "desc";
 
@@ -88,13 +88,31 @@ export async function deleteEventFromProgram(
 	await updateDoc(ref, { [`program.${day}`]: arrayRemove(event) });
 }
 
+function toDate(value: Date | Timestamp): Date {
+	return value instanceof Timestamp ? value.toDate() : value;
+}
+
 export async function getProgram(year: string): Promise<Record<RekaDay, Event[]>> {
 	const ref = doc(db, "rekaer", year);
 	const snapshot = await getDoc(ref);
 	if (!snapshot.exists()) {
 		throw new Error("Reka finnes ikke");
 	}
-	return (snapshot.data() as Reka).program;
+
+	const { program } = snapshot.data() as Reka;
+
+	const convertedProgram = Object.fromEntries(
+		Object.entries(program).map(([day, events]) => [
+			day,
+			events.map((event: Event) => ({
+				...event,
+				startTime: toDate(event.startTime),
+				endTime: toDate(event.endTime),
+			})),
+		])
+	) as Record<RekaDay, Event[]>;
+
+	return convertedProgram;
 }
 
 export async function getDay(year: string, day: RekaDay): Promise<Event[]> {

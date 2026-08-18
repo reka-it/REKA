@@ -35,25 +35,37 @@
   }
 
   td {
+    position: relative;
+  }
+
+  .row {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 5px 10px;
-    border: 3px dotted $on-bg-default;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    font-size: 2rem;
+    border-bottom: 3px dotted $on-bg-default;
 
     transition: color 150ms ease, scale 150ms ease, filter 150ms ease;
 
-    position: relative;
     cursor: pointer;
 
     &:hover {
       border-color: var(--primary);
-      scale: 1.01;
+    }
+  }
+
+  .addEvent {
+    background: var(--bg);
+    color: var(--on-bg);
+
+    &:hover {
+      color: $white-default;
+      background: var(--primary);
     }
   }
 

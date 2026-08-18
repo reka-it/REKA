@@ -22,6 +22,5 @@ export default function HypeCard({ className }: HypeCardProps) {
 		<Card className={`${styles.program} ${className}`}>
 
 		</Card>
-
 	);
 }
