@@ -5,7 +5,7 @@ import { useAuth } from "~/firebase/useAuth";
 import Textbox from "~/components/Textbox/Textbox";
 import Reke from "~/components/Reke/Reke";
 
-export async function loader() {
+export async function clientLoader() {
 	const meanings = await getRandomMeanings(28);
 	return { meanings }
 }
