@@ -1,5 +1,6 @@
 {
 	"name": "reka",
+	"homepage": "https://reken.no",
 	"private": true,
 	"type": "module",
 	"scripts": {
