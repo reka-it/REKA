@@ -29,7 +29,7 @@ export default function Card({
 	const { ox, oy } = useMemo(() => ({ ox: Math.random() * offset * 2 - offset, oy: Math.random() * offset * 2 - offset }), [bgtype]);
 
 	return (
-		<div className={`${styles.card} ${className}`} style={style} onClick={onClick}>
+		<div className={`${className} ${styles.card}`} style={style} onClick={onClick}>
 			{bgtype === "pattern" &&
 				<Pattern smallest={7} largest={7} spacing={20} opacity={patternOpacity} color={patternColor} offsetY={oy} offsetX={ox} />
 			}
