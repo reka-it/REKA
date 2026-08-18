@@ -6,7 +6,11 @@ export function meta({ }: Route.MetaArgs) {
 }
 
 export function clientLoader() {
-	throw redirect(`/reka/${new Date().getFullYear()}`);
+	//throw redirect(`/reka/${new Date().getFullYear()}`);
+}
+
+export default function Home() {
+	return (<div>uwu</div>)
 }
 
 // ekspoter ikke noe html siden den redirecter til årets reka før noe html blir lastet
