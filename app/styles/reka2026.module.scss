@@ -5,7 +5,8 @@
 // Content
 ////////////////////////////////////
 
-.title h1 { //The theme
+.title h1 {
+  //The theme
   @include color-shadow(3, ($orange, $yellow, $green, $blue));
 
   @include for-mobile-only {
@@ -14,7 +15,8 @@
   }
 }
 
-.title h5 { //REKA xxxx
+.title h5 {
+  //REKA xxxx
   transform: translateY(0.7rem);
   color: $reke-default;
 
@@ -23,14 +25,16 @@
   }
 }
 
-.title h5 span { //The year in REKA xxxx
+.title h5 span {
+  //The year in REKA xxxx
   color: $red-2026;
   display: inline-block;
   transform: scale(1.15) rotate(-2deg) translate(0.1rem, -0.1rem);
   -webkit-text-stroke: 0.8px darken($orange-2026, 15%);
 }
 
-.title h6 { //MG's årlige festival
+.title h6 {
+  //MG's årlige festival
   color: $on-bg-2026;
   opacity: 48%;
 
@@ -96,6 +100,8 @@
 
 
 .info {
+  background: $green-2026;
+  color: $white-default;
   line-height: 1.5;
   grid-column: 1 / 10;
   grid-row: 1 / 9;
@@ -112,15 +118,16 @@
 }
 
 .info p {
-  font-size: 2rem;
+  font-size: 1rem;
+
   @include for-mobile-only {
     font-size: clamp(0.6rem, 0.5rem + 0.7vw, 0.7rem);
   }
 }
 
 .insta {
-  --card-bg: #{$blue};
-  --card-color: #{$white-default};
+  background: $blue-2026;
+  color: $white-default;
 
   box-shadow: -$box-shadow-default $box-shadow-default 0 $shadow-default;
   align-items: center;
@@ -128,6 +135,11 @@
   grid-row: 2 / 8;
   text-align: center;
   font-size: 1.5rem;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
   &:hover {
     translate: 1px 1px;
@@ -140,12 +152,13 @@
     text-align: left;
     font-size: clamp(0.6rem, 0.5rem + 0.7vw, 0.7rem);
   }
+
 }
 
 .insta button {
-  width: 100%;
-  height: 50%;
-  margin: 0.2rem 0 2rem 0;
+  width: 80%;
+  height: 35%;
+
   @include for-mobile-only {
     margin-top: 0.2rem;
     width: auto;
@@ -173,8 +186,8 @@
 }
 
 .countdown {
-  --card-bg: #{$orange-2026};
-  --card-color: #{$white-default};
+  background: $orange-2026;
+  color: $white-default;
 
   text-align: center;
   display: flex;
@@ -193,8 +206,8 @@
 }
 
 .program {
-  --card-bg: #{$blue-2026};
-  --card-color: #{$white-default};
+  background: $blue-2026;
+  color: $white-default;
 
   text-align: center;
   line-height: 1.5;

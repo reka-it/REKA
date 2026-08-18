@@ -1,6 +1,8 @@
 @use "constants" as *;
 
 .hype {
+  background-color: $pink-2026;
+  color: $white-default;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
