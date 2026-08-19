@@ -14,7 +14,7 @@ type Milestone = {
 
 export default function HypeCard({ className }: HypeCardProps) {
 	const { hype, loading } = useHypeCounter();
-	const milstones: Array<Milestone> = [
+	const milstones: Array<Milestone> = [ //Dette burde bli flyttet et annet sted og ikke hardcoded her
 		{ name: "vises ikke cuz we passed that shit", goal: 1000 },
 		{ name: "reka program relase", goal: 3000 },
 		{ name: "suprise", goal: 6000 },
@@ -23,9 +23,9 @@ export default function HypeCard({ className }: HypeCardProps) {
 
 	return (
 		<Card className={`${styles.hype} ${className}`}>
-			Hype button tm
+			Hype button!!!
 			<HypeButton />
-			<ul className={styles.milestones}>
+			{/* <ul className={styles.milestones}>
 				{!loading && hype !== null &&
 					milstones.map((milestone) => {
 						if (milestone.goal <= hype) {
@@ -38,7 +38,7 @@ export default function HypeCard({ className }: HypeCardProps) {
 						</li >
 					})
 				}
-			</ul>
+			</ul> */}
 		</Card>
 
 	);

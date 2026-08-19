@@ -141,7 +141,6 @@ div.insta {
 
   display: flex;
   flex-direction: column;
-  gap: 10px;
 
   &:hover {
     translate: 1px 1px;
@@ -169,6 +168,8 @@ div.insta {
 }
 
 .hype {
+  text-align: center;
+  font-size: clamp(2rem, 0.8rem + 0.8vw, 1.5rem);
   grid-column: 4 / 15;
   grid-row: 10 / 17;
 
@@ -176,6 +177,11 @@ div.insta {
     grid-column: 2 / 14;
     grid-row: 16 / 30;
   }
+}
+
+.hype button {
+  height: 100%;
+  margin: 2rem 0;
 }
 
 .visibleLines {
