@@ -5,6 +5,8 @@
 // Content
 ////////////////////////////////////
 
+
+
 .title h1 {
   //The theme
   @include color-shadow(3, ($orange, $yellow, $green, $blue));
@@ -100,7 +102,7 @@
 
 
 div.info {
-  background: $green-2026;
+  background: $pink-2026;
   color: $white-default;
   line-height: 1.5;
   grid-column: 1 / 10;
@@ -118,7 +120,7 @@ div.info {
 }
 
 .info p {
-  font-size: 1rem;
+  font-size: 2rem;
 
   @include for-mobile-only {
     font-size: clamp(0.6rem, 0.5rem + 0.7vw, 0.7rem);
